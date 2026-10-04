@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>POS – Payment</title>
+<link rel="stylesheet" href="assets/app.css"><link rel="stylesheet" href="assets/pos.css">
+<style>
+.overlay{position:fixed;inset:0;background:rgba(8,15,45,.55);backdrop-filter:blur(2px);display:grid;place-items:center}
+.modal{width:940px;background:#fff;border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.35);overflow:hidden;display:grid;grid-template-columns:1fr 330px}
+.mh{padding:18px 22px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px}
+.mh h2{font-size:17px}
+.methods{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:16px 22px 4px}
+.m{border:1.5px solid var(--line);border-radius:11px;padding:12px;display:flex;flex-direction:column;gap:8px;font-weight:600;font-size:12.5px;position:relative}
+.m .ib{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;background:#f1f4f9;color:var(--text-2)}
+.m.on{border-color:var(--blue);background:var(--blue-ll)}
+.m.on .ib{background:var(--blue);color:#fff}
+.m .tick{position:absolute;top:10px;right:10px;width:18px;height:18px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center}
+.m .tick svg{width:11px;height:11px;stroke-width:3}
+.m small{font-weight:500;color:var(--muted);font-size:11px}
+.split{margin:14px 22px 0;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.split .sr{display:grid;grid-template-columns:30px 1fr 150px 120px 24px;gap:10px;align-items:center;padding:11px 14px;border-bottom:1px solid var(--line-2)}
+.split .sr:last-child{border:0}
+.amt{height:36px;border:1.5px solid var(--line);border-radius:9px;display:flex;align-items:center;justify-content:flex-end;padding:0 12px;font-weight:700;font-size:14px}
+.amt.f{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.15)}
+.right{background:#f7f9fd;border-left:1px solid var(--line);padding:18px 20px;display:flex;flex-direction:column;gap:12px}
+.big{background:var(--navy);color:#fff;border-radius:12px;padding:16px}
+.big span{font-size:12px;color:#9aa8d6}
+.big b{display:block;font-size:30px;letter-spacing:-.02em;margin-top:2px}
+.keys{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.keys div{height:44px;border-radius:9px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;font-size:16px;font-weight:600}
+.quick{display:flex;gap:6px}
+.quick span{flex:1;height:32px;border-radius:8px;border:1px solid var(--line);background:#fff;display:grid;place-items:center;font-weight:600;font-size:12px}
+.done{height:52px;border-radius:11px;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:15px;box-shadow:0 8px 20px rgba(37,99,235,.35)}
+</style></head>
+<body><div id="pos"></div>
+<div class="overlay"><div class="modal">
+ <div>
+  <div class="mh"><div class="kpi" style="padding:0"><div class="l"><span class="ib"><i data-i="card"></i></span></div></div><div class="grow"><h2>Collect Payment</h2><div class="muted" style="font-size:12px;margin-top:2px">Bill #MG-2026-08431 · Vijay Sharma · 98765 43210 · 6 items</div></div><span class="btn sm"><i data-i="x"></i>Esc</span></div>
+  <div class="methods">
+   <div class="m on"><span class="tick"><i data-i="check"></i></span><span class="ib"><i data-i="cash"></i></span>Cash<small>Auto change calc</small></div>
+   <div class="m on"><span class="tick"><i data-i="check"></i></span><span class="ib"><i data-i="upi"></i></span>UPI<small>QR / VPA</small></div>
+   <div class="m"><span class="ib"><i data-i="card"></i></span>Credit / Debit Card<small>POS terminal</small></div>
+   <div class="m"><span class="ib"><i data-i="wallet"></i></span>Wallet<small>Paytm, PhonePe</small></div>
+   <div class="m"><span class="ib"><i data-i="bank"></i></span>Bank Transfer<small>NEFT / IMPS</small></div>
+   <div class="m"><span class="ib"><i data-i="gift"></i></span>Store Credit<small>Bal. ₹350.00</small></div>
+   <div class="m"><span class="ib"><i data-i="star"></i></span>Loyalty Points<small>1,240 pts = ₹124</small></div>
+   <div class="m" style="border-style:dashed;color:var(--muted)"><span class="ib"><i data-i="plus"></i></span>Split payment<small>Multiple methods</small></div>
+  </div>
+  <div class="row between" style="padding:14px 22px 0"><b>Split Payment</b><span class="chip green">Fully allocated</span></div>
+  <div class="split">
+   <div class="sr" style="background:#f8fafd;font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;padding:8px 14px"><span></span><span>Method</span><span style="text-align:right">Amount</span><span>Reference</span><span></span></div>
+   <div class="sr"><span class="thumb" style="width:30px;height:30px;color:var(--blue)"><i data-i="upi"></i></span><div><b>UPI</b><div class="muted" style="font-size:11px">Paid via GPay · verified</div></div><div class="amt num">₹5,000.00</div><span class="chip green">UTR 6271…903</span><span class="faint"><i data-i="trash" data-s="16"></i></span></div>
+   <div class="sr"><span class="thumb" style="width:30px;height:30px;color:var(--green)"><i data-i="cash"></i></span><div><b>Cash</b><div class="muted" style="font-size:11px">Tendered ₹2,500.00</div></div><div class="amt f num">₹2,094.00</div><span class="chip amber">Change ₹406</span><span class="faint"><i data-i="trash" data-s="16"></i></span></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:16px 22px 20px">
+   <div class="field"><label>Invoice delivery</label><div class="row" style="gap:6px"><span class="btn sm" style="border-color:var(--blue);color:var(--blue)"><i data-i="printer"></i>Thermal 80mm</span><span class="btn sm"><i data-i="whatsapp"></i>WhatsApp</span></div></div>
+   <div class="field"><label>Salesperson</label><div class="input" style="height:32px">Ravi M. (Floor 1)<span class="caret"><i data-i="down" data-s="14"></i></span></div></div>
+   <div class="field"><label>Note on invoice</label><div class="input ph" style="height:32px">Exchange within 7 days</div></div>
+  </div>
+ </div>
+ <div class="right">
+  <div class="big"><span>Payable Amount</span><b class="num">₹7,094.00</b><div class="row between" style="margin-top:10px;font-size:12px;color:#c7d0ea"><span>Received ₹7,500.00</span><span style="color:#86efac;font-weight:600">Change ₹406.00</span></div></div>
+  <div class="row between" style="font-size:12px"><span class="muted">Cash tendered</span><b class="num" style="font-size:18px">₹2,500</b></div>
+  <div class="quick"><span>₹2,094</span><span>₹2,100</span><span>₹2,500</span><span>₹3,000</span></div>
+  <div class="keys"><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div>00</div><div>0</div><div style="color:var(--muted)"><i data-i="x"></i></div></div>
+  <div class="row" style="gap:8px;font-size:11.5px;color:var(--muted)"><i data-i="zap" data-s="14"></i>Cash drawer opens on completion</div>
+  <div class="done">Complete Sale <span class="kbd">F12</span><i data-i="arrow"></i></div>
+ </div>
+</div></div>
+<script src="assets/app.js"></script><script src="assets/pos.js"></script></body></html>

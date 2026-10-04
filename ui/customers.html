@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Customers</title>
+<link rel="stylesheet" href="assets/app.css"></head>
+<body><div class="shell">
+<aside class="side" data-side="tenant" data-active="customers"></aside>
+<div class="main">
+ <div class="top">
+  <div><div class="crumb">Sales › Customers</div><h1>Customers</h1></div>
+  <div class="grow"></div>
+  <div class="search"><i data-i="phone" data-s="16"></i>Quick lookup by mobile number…</div>
+  <span class="btn"><i data-i="download"></i>Export</span>
+  <span class="btn primary"><i data-i="plus"></i>Add Customer</span>
+  <div class="me"><div class="av">AR</div><div><b>Anita Rao</b><span>Tenant Owner</span></div></div>
+ </div>
+ <div class="content" style="flex-direction:row">
+  <div style="flex:1;display:flex;flex-direction:column;gap:14px;min-width:0">
+   <div class="kpis" style="grid-template-columns:repeat(3,1fr)">
+    <div class="card kpi"><div class="l"><span class="ib"><i data-i="users"></i></span>Total customers</div><div class="v num">8,214</div><div class="d"><span class="up">+186</span> this month</div></div>
+    <div class="card kpi"><div class="l"><span class="ib" style="background:var(--green-l);color:var(--green)"><i data-i="refresh"></i></span>Repeat rate</div><div class="v num">41%</div><div class="d">visited 2+ times in 90 days</div></div>
+    <div class="card kpi"><div class="l"><span class="ib" style="background:var(--amber-l);color:var(--amber)"><i data-i="star"></i></span>Loyalty points issued</div><div class="v num">3.9L</div><div class="d">₹39,200 liability</div></div>
+   </div>
+   <div class="card" style="overflow:hidden">
+    <div class="row" style="padding:12px 16px"><div class="tabs"><span class="on">All</span><span>Loyal</span><span>New</span><span>B2B (GSTIN)</span><span>Inactive</span></div></div>
+    <table class="t">
+     <tr><th>Customer</th><th>Mobile</th><th class="r">Visits</th><th class="r">Lifetime spend</th><th>Last visit</th><th class="r">Points</th></tr>
+     <tr style="background:var(--blue-ll)"><td><div class="row"><div class="av-s" style="background:#dbeafe;color:#1d4ed8">VS</div><b>Vijay Sharma</b><span class="chip amber nodot">Gold</span></div></td><td>98765 43210</td><td class="r num">23</td><td class="r num"><b>₹48,920</b></td><td>Today</td><td class="r num">1,240</td></tr>
+     <tr><td><div class="row"><div class="av-s" style="background:#fce7f3;color:#be185d">MK</div><b>Meera Krishnan</b></div></td><td>99001 22334</td><td class="r num">17</td><td class="r num"><b>₹36,410</b></td><td>2 Oct</td><td class="r num">910</td></tr>
+     <tr><td><div class="row"><div class="av-s" style="background:#dcfce7;color:#15803d">AN</div><b>Arjun Nair</b></div></td><td>98450 11782</td><td class="r num">9</td><td class="r num"><b>₹14,880</b></td><td>28 Sep</td><td class="r num">372</td></tr>
+     <tr><td><div class="row"><div class="av-s" style="background:#ede9fe;color:#6d28d9">ST</div><b>Shreya Trends</b><span class="chip blue nodot">B2B</span></div></td><td>80123 45678</td><td class="r num">31</td><td class="r num"><b>₹2,14,600</b></td><td>27 Sep</td><td class="r num">—</td></tr>
+     <tr><td><div class="row"><div class="av-s" style="background:#fef3c7;color:#b45309">RP</div><b>Rohan Patel</b></div></td><td>97391 55620</td><td class="r num">4</td><td class="r num"><b>₹6,240</b></td><td>21 Sep</td><td class="r num">156</td></tr>
+     <tr><td><div class="row"><div class="av-s" style="background:#e0f2fe;color:#0369a1">FA</div><b>Fatima Ali</b></div></td><td>99860 34120</td><td class="r num">12</td><td class="r num"><b>₹22,105</b></td><td>18 Sep</td><td class="r num">552</td></tr>
+     <tr><td><div class="row"><div class="av-s" style="background:#fee2e2;color:#b91c1c">KD</div><b>Karthik Das</b></div></td><td>90080 77341</td><td class="r num">2</td><td class="r num"><b>₹2,998</b></td><td>02 Aug</td><td class="r num">74</td></tr>
+     <tr><td><div class="row"><div class="av-s" style="background:#dcfce7;color:#15803d">NI</div><b>Neha Iyer</b><span class="chip amber nodot">Gold</span></div></td><td>98861 20419</td><td class="r num">19</td><td class="r num"><b>₹39,770</b></td><td>15 Sep</td><td class="r num">994</td></tr>
+     <tr><td><div class="row"><div class="av-s" style="background:#e0e7ff;color:#4338ca">SG</div><b>Sanjay Gupta</b></div></td><td>99452 81730</td><td class="r num">6</td><td class="r num"><b>₹9,412</b></td><td>09 Sep</td><td class="r num">235</td></tr>
+     <tr><td><div class="row"><div class="av-s" style="background:#fce7f3;color:#be185d">DM</div><b>Divya Menon</b></div></td><td>97404 66218</td><td class="r num">3</td><td class="r num"><b>₹4,180</b></td><td>30 Aug</td><td class="r num">104</td></tr>
+    </table>
+   </div>
+  </div>
+  <div class="card" style="width:420px;flex:none;display:flex;flex-direction:column;overflow:hidden">
+   <div style="padding:18px;background:linear-gradient(135deg,var(--navy),#1c3aa9);color:#fff">
+    <div class="row"><div class="av-s" style="width:48px;height:48px;font-size:16px;background:#fff;color:var(--blue)">VS</div><div class="grow"><b style="font-size:16px">Vijay Sharma</b><div style="font-size:12px;color:#c7d0ea;margin-top:2px">98765 43210 · vijay.s@mail.com</div></div><span class="chip nodot" style="background:#f59e0b;color:#fff">Gold</span></div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px">
+     <div><span style="font-size:11px;color:#9aa8d6">Lifetime</span><br><b class="num" style="font-size:16px">₹48,920</b></div>
+     <div><span style="font-size:11px;color:#9aa8d6">Avg bill</span><br><b class="num" style="font-size:16px">₹2,127</b></div>
+     <div><span style="font-size:11px;color:#9aa8d6">Points</span><br><b class="num" style="font-size:16px">1,240</b></div>
+    </div>
+   </div>
+   <div style="padding:14px 18px;display:flex;flex-direction:column;gap:12px">
+    <div class="row" style="gap:8px;font-size:12px"><span class="chip gray nodot">Prefers: L / 32</span><span class="chip gray nodot">Shirts · Denim</span><span class="chip gray nodot">Store credit ₹350</span></div>
+    <div class="tabs"><span class="on">Purchases</span><span>Returns</span><span>Loyalty</span><span>Profile</span></div>
+    <div style="display:flex;flex-direction:column;gap:2px">
+     <div class="row" style="padding:10px 0;border-bottom:1px solid var(--line-2)"><div class="thumb" data-p="jacket" data-c="#15803d"></div><div class="grow"><b>MG-2026-08431</b><div class="muted" style="font-size:11px">Today · 6 items · UPI + Cash</div></div><b class="num">₹7,094</b></div>
+     <div class="row" style="padding:10px 0;border-bottom:1px solid var(--line-2)"><div class="thumb" data-p="kurta" data-c="#0f766e"></div><div class="grow"><b>MG-2026-07912</b><div class="muted" style="font-size:11px">14 Sep · 2 items · Card</div></div><b class="num">₹3,598</b></div>
+     <div class="row" style="padding:10px 0;border-bottom:1px solid var(--line-2)"><div class="thumb" data-p="shirt" data-c="#1e40af"></div><div class="grow"><b>MG-2026-07355</b><div class="muted" style="font-size:11px">30 Aug · 1 item · Exchanged size M→L</div></div><b class="num">₹1,299</b></div>
+     <div class="row" style="padding:10px 0;border-bottom:1px solid var(--line-2)"><div class="thumb" data-p="jeans" data-c="#1e3a8a"></div><div class="grow"><b>MG-2026-06620</b><div class="muted" style="font-size:11px">02 Aug · 3 items · UPI</div></div><b class="num">₹4,197</b></div>
+     <div class="row" style="padding:10px 0"><div class="thumb" data-p="shoe" data-c="#b45309"></div><div class="grow"><b>MG-2026-05981</b><div class="muted" style="font-size:11px">11 Jul · 1 item · Cash</div></div><b class="num">₹2,499</b></div>
+    </div>
+    <div class="row" style="gap:8px"><span class="btn grow" style="justify-content:center"><i data-i="whatsapp"></i>Send offer</span><span class="btn primary grow" style="justify-content:center"><i data-i="pos"></i>New bill for customer</span></div>
+   </div>
+  </div>
+ </div>
+</div></div>
+<script src="assets/app.js"></script></body></html>

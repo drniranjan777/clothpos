@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Shift & Day Closing</title>
+<link rel="stylesheet" href="assets/app.css">
+<style>
+.den{display:grid;grid-template-columns:80px 1fr 90px;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line-2);font-size:12.5px}
+.den .n{height:30px;border:1px solid var(--line);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;width:70px}
+.note{display:inline-flex;align-items:center;justify-content:center;width:64px;height:28px;border-radius:6px;font-weight:700;font-size:12px}
+</style></head>
+<body><div class="shell">
+<aside class="side" data-side="tenant" data-active="shift"></aside>
+<div class="main">
+ <div class="top">
+  <div><div class="crumb">Sales › Shift &amp; Day Close</div><h1>Close Shift #142 · Counter 2</h1></div>
+  <span class="chip green">Open since 09:02 AM</span>
+  <div class="grow"></div>
+  <span class="btn"><i data-i="printer"></i>Print X-report</span>
+  <div class="me"><div class="av">VK</div><div><b>Vijay Kumar</b><span>Cashier</span></div></div>
+ </div>
+ <div class="content" style="flex-direction:row">
+  <div style="flex:1;display:flex;flex-direction:column;gap:16px;min-width:0">
+   <div class="kpis" style="grid-template-columns:repeat(4,1fr)">
+    <div class="card kpi"><div class="l">Opening cash</div><div class="v num">₹5,000</div><div class="d">counted at 09:02 AM</div></div>
+    <div class="card kpi"><div class="l">Bills processed</div><div class="v num">48</div><div class="d">2 held · 1 cancelled</div></div>
+    <div class="card kpi"><div class="l">Gross sales</div><div class="v num">₹72,410</div><div class="d">₹1,850 discounts given</div></div>
+    <div class="card kpi"><div class="l">Refunds paid</div><div class="v num">₹999</div><div class="d">1 cash refund</div></div>
+   </div>
+   <div class="card" style="overflow:hidden">
+    <div class="card-h" style="padding-bottom:10px"><h3>Payment summary</h3><span class="muted" style="font-size:12px">System vs counted</span></div>
+    <table class="t">
+     <tr><th>Method</th><th class="r">Transactions</th><th class="r">Expected</th><th class="r">Counted / Settled</th><th class="r">Variance</th></tr>
+     <tr><td><div class="row"><i data-i="cash"></i><b>Cash</b></div></td><td class="r num">19</td><td class="r num">₹27,610</td><td class="r num"><b>₹27,490</b></td><td class="r"><span class="chip amber nodot">−₹120</span></td></tr>
+     <tr><td><div class="row"><i data-i="upi"></i><b>UPI</b></div></td><td class="r num">22</td><td class="r num">₹38,240</td><td class="r num"><b>₹38,240</b></td><td class="r"><span class="chip green nodot">Matched</span></td></tr>
+     <tr><td><div class="row"><i data-i="card"></i><b>Card</b></div></td><td class="r num">6</td><td class="r num">₹9,560</td><td class="r num"><b>₹9,560</b></td><td class="r"><span class="chip green nodot">Matched</span></td></tr>
+     <tr><td><div class="row"><i data-i="wallet"></i><b>Wallet / Store credit</b></div></td><td class="r num">3</td><td class="r num">₹2,000</td><td class="r num"><b>₹2,000</b></td><td class="r"><span class="chip green nodot">Matched</span></td></tr>
+    </table>
+   </div>
+   <div class="card" style="padding:16px 18px;display:flex;gap:16px;align-items:center;background:var(--amber-l);border-color:#f6d9a8">
+    <span style="width:40px;height:40px;border-radius:10px;background:#fff;color:var(--amber);display:grid;place-items:center"><i data-i="alert"></i></span>
+    <div class="grow"><b>Cash short by ₹120</b><div class="muted" style="font-size:12px;margin-top:2px">Variance is within the ₹200 tolerance. Add a note; the manager must confirm before day closing.</div></div>
+    <div class="input ph" style="width:280px">Note: change given twice on bill 08417</div>
+   </div>
+   <div class="card" style="padding:16px 18px">
+    <b>Closing checklist</b>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 30px;margin-top:12px;font-size:12.5px">
+     <div class="row"><span class="check on"></span>All held bills resolved or carried forward (2)</div>
+     <div class="row"><span class="check on"></span>Offline transactions synced (0 pending)</div>
+     <div class="row"><span class="check on"></span>UPI settlement matched with bank app</div>
+     <div class="row"><span class="check"></span>Card terminal batch settled</div>
+     <div class="row"><span class="check on"></span>Cash counted by denomination</div>
+     <div class="row"><span class="check"></span>Manager confirmation</div>
+    </div>
+   </div>
+   <div class="card" style="flex:1">
+    <div class="card-h"><div><h3>Hourly sales · this shift</h3></div><span class="muted" style="font-size:12px">Peak 6–7 PM</span></div>
+    <div class="card-b" style="padding-top:4px"><div data-bars="[2100,4300,5200,6100,3900,4800,5600,7200,8100,9900,12400,2810]" data-labels="9,10,11,12,1,2,3,4,5,6,7,8" data-w="740" data-h="88"></div></div>
+   </div>
+  </div>
+  <div class="card" style="width:360px;flex:none;display:flex;flex-direction:column">
+   <div class="card-h"><h3>Cash count</h3><span class="muted" style="font-size:12px">by denomination</span></div>
+   <div class="card-b" style="display:flex;flex-direction:column;flex:1">
+    <div class="den"><span class="note" style="background:#f3e8ff;color:#7e22ce">₹500</span><div class="n">42</div><b class="num" style="text-align:right">₹21,000</b></div>
+    <div class="den"><span class="note" style="background:#fce7f3;color:#be185d">₹200</span><div class="n">18</div><b class="num" style="text-align:right">₹3,600</b></div>
+    <div class="den"><span class="note" style="background:#fef9c3;color:#a16207">₹100</span><div class="n">21</div><b class="num" style="text-align:right">₹2,100</b></div>
+    <div class="den"><span class="note" style="background:#e0f2fe;color:#0369a1">₹50</span><div class="n">9</div><b class="num" style="text-align:right">₹450</b></div>
+    <div class="den"><span class="note" style="background:#dcfce7;color:#15803d">₹20</span><div class="n">11</div><b class="num" style="text-align:right">₹220</b></div>
+    <div class="den"><span class="note" style="background:#f1f5f9;color:#475569">₹10</span><div class="n">8</div><b class="num" style="text-align:right">₹80</b></div>
+    <div class="den" style="border:0"><span class="note" style="background:#f1f5f9;color:#475569">Coins</span><div class="n">—</div><b class="num" style="text-align:right">₹40</b></div>
+    <div class="row between" style="margin-top:10px;background:var(--navy);color:#fff;border-radius:10px;padding:14px"><span>Counted cash</span><b class="num" style="font-size:20px">₹27,490</b></div>
+    <div class="row between" style="margin-top:8px;font-size:12px;padding:0 4px"><span class="muted">Expected</span><b class="num">₹27,610</b></div>
+    <div class="field" style="margin-top:14px"><label>Manager PIN</label><div class="input"><i data-i="lock" data-s="16"></i>••••</div></div>
+    <div style="margin-top:auto;display:flex;flex-direction:column;gap:8px"><span class="btn primary" style="justify-content:center;height:44px"><i data-i="check"></i>Close shift &amp; print Z-report</span><span class="btn" style="justify-content:center">Save count, close later</span></div>
+   </div>
+  </div>
+ </div>
+</div></div>
+<script src="assets/app.js"></script></body></html>

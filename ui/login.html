@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Sign in</title>
+<link rel="stylesheet" href="assets/app.css">
+<style>
+.wrap{display:grid;grid-template-columns:1fr 560px;height:900px}
+.hero{background:radial-gradient(900px 500px at 20% 10%,#1c3aa9 0,transparent 60%),var(--navy);color:#fff;padding:56px 64px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.hero h1{font-size:54px;line-height:1.05;letter-spacing:-.03em;margin-top:70px;font-weight:800}
+.hero h1 span{color:#60a5fa}
+.hero p{font-size:17px;color:#c7d0ea;margin-top:18px;max-width:520px;line-height:1.5}
+.feat{display:flex;gap:14px;margin-top:40px}
+.feat div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px;width:200px}
+.feat div b{display:block;margin-top:10px;font-size:14px}
+.feat div span{font-size:12px;color:#9aa8d6}
+.feat .ib{width:38px;height:38px;border-radius:10px;background:var(--blue);display:grid;place-items:center}
+.floaty{position:absolute;right:30px;bottom:60px;display:flex;gap:14px;transform:rotate(-6deg)}
+.floaty div{width:120px;height:140px;background:#fff;border-radius:16px;display:grid;place-items:center;box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.floaty svg{width:90px;height:90px}
+.form{background:#fff;display:flex;flex-direction:column;justify-content:center;padding:0 80px;gap:18px}
+.role{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.role span{border:1.5px solid var(--line);border-radius:10px;padding:10px;text-align:center;font-weight:600;font-size:12.5px;color:var(--muted)}
+.role span.on{border-color:var(--blue);background:var(--blue-ll);color:var(--blue)}
+</style></head>
+<body><div class="wrap">
+ <div class="hero">
+  <img src="assets/logo-light.png" alt="NPOS" style="height:88px;display:block;align-self:flex-start">
+  <h1>Barcode scan karo,<br><span>billing ready.</span></h1>
+  <p>Kapde ki dukaan ke har piece pe barcode — scan karo, bill ready, line na lage. Size, colour &amp; price auto-picked.</p>
+  <div class="feat">
+   <div><span class="ib"><i data-i="scan"></i></span><b>Scan. Bill. Done.</b><span>Near-instant barcode-to-cart</span></div>
+   <div><span class="ib"><i data-i="layers"></i></span><b>Size × Colour SKUs</b><span>Exact variant stock tracking</span></div>
+   <div><span class="ib"><i data-i="wifi"></i></span><b>Works offline</b><span>Syncs when internet returns</span></div>
+  </div>
+  <div class="floaty"><div data-p="plaid" data-c="#9f1239"></div><div data-p="jacket" data-c="#15803d"></div><div data-p="heels" data-c="#d6a77a"></div></div>
+ </div>
+ <div class="form">
+  <div><h2 style="font-size:26px;letter-spacing:-.02em">Welcome back</h2><div class="muted" style="margin-top:6px">Sign in to your store or the admin console</div></div>
+  <div class="role"><span class="on">Store staff</span><span>Owner / Admin</span><span>Super Admin</span></div>
+  <div class="field"><label>Mobile number or email</label><div class="input"><i data-i="user" data-s="16"></i>vijay.kumar@vastra.in</div></div>
+  <div class="field"><label>Password</label><div class="input"><i data-i="lock" data-s="16"></i>••••••••••<span class="caret"><i data-i="eye" data-s="16"></i></span></div></div>
+  <div class="row between"><span class="row" style="gap:8px"><span class="check on"></span>Remember this counter</span><a style="color:var(--blue);font-weight:600">Forgot password?</a></div>
+  <div class="field"><label>Store &amp; counter</label><div class="input">MG Road Store · Counter 2<span class="caret"><i data-i="down" data-s="16"></i></span></div></div>
+  <span class="btn primary" style="height:46px;justify-content:center;font-size:14px">Sign in &amp; open shift<i data-i="arrow"></i></span>
+  <div class="muted" style="font-size:11.5px;text-align:center">Protected by role-based access &amp; tenant isolation · OTP for Super Admin</div>
+ </div>
+</div>
+<script src="assets/app.js"></script></body></html>

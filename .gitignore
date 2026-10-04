@@ -1,0 +1,12 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.env
+.env.local
+frontend/dist/
+frontend/scripts/offline-e2e-shots/
+
+# local only - never commit
+credentials.txt
+*.log
+.claude/

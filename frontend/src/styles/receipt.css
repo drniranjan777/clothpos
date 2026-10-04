@@ -1,0 +1,15 @@
+.receipt{background:#fff;padding:16px 14px 20px;font-family:Consolas,"Courier New",monospace;font-size:11px;color:#111;line-height:1.45;position:relative}
+.receipt .c{text-align:center}
+.receipt hr{border:0;border-top:1px dashed #555;margin:6px 0}
+.receipt .r{display:flex;justify-content:space-between;gap:8px;white-space:pre}
+.receipt .r span:first-child{overflow:hidden;text-overflow:ellipsis}
+.receipt .tot{font-size:14px;font-weight:700}
+.receipt-paper{box-shadow:0 10px 30px rgba(15,23,42,.15)}
+.print-area{display:none}
+@media print{
+  @page{margin:0}
+  body.printing{min-width:0;background:#fff}
+  body.printing > *:not(.print-area){display:none!important}
+  body.printing .print-area{display:block}
+  body.printing .receipt{padding:4px 2px}
+}

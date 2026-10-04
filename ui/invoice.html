@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Invoice & Receipt</title>
+<link rel="stylesheet" href="assets/app.css">
+<style>
+.paper{width:330px;background:#fff;box-shadow:0 10px 30px rgba(15,23,42,.15);padding:18px 18px 22px;font-family:"Consolas","Courier New",monospace;font-size:11px;color:#111;line-height:1.45;position:relative}
+.paper::after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:8px;background:linear-gradient(-45deg,transparent 6px,#fff 0) 0 0/12px 8px,linear-gradient(45deg,transparent 6px,#fff 0) 0 0/12px 8px}
+.paper .c{text-align:center}
+.paper hr{border:0;border-top:1px dashed #555;margin:7px 0}
+.paper .r{display:flex;justify-content:space-between}
+.paper .it{margin-bottom:4px}
+.paper .tot{font-size:15px;font-weight:700}
+.qr{width:74px;height:74px;margin:6px auto 0;display:grid;grid-template-columns:repeat(9,1fr)}
+.qr i{background:#111}
+</style></head>
+<body><div class="shell">
+<aside class="side" data-side="tenant" data-active="invoices"></aside>
+<div class="main">
+ <div class="top">
+  <div><div class="crumb">Sales › Invoices › MG-2026-08431</div><h1>Invoice MG-2026-08431</h1></div>
+  <span class="chip green">Paid</span>
+  <div class="grow"></div>
+  <span class="btn"><i data-i="undo"></i>Return / Exchange</span>
+  <span class="btn"><i data-i="x"></i>Cancel invoice</span>
+  <div class="me"><div class="av">VK</div><div><b>Vijay Kumar</b><span>Cashier</span></div></div>
+ </div>
+ <div class="content" style="flex-direction:row;gap:20px">
+  <div style="flex:1;display:flex;flex-direction:column;gap:16px">
+   <div class="card" style="padding:22px;display:flex;gap:18px;align-items:center;background:linear-gradient(135deg,#ecfdf3,#fff)">
+    <div style="width:56px;height:56px;border-radius:50%;background:var(--green);display:grid;place-items:center;color:#fff;box-shadow:0 8px 20px rgba(21,128,61,.3)"><i data-i="check" data-s="28"></i></div>
+    <div class="grow"><b style="font-size:18px">Sale completed · ₹7,094.00</b><div class="muted" style="margin-top:4px">04 Oct 2026, 18:42 · Counter 2 · Vijay Kumar · Inventory deducted for 6 units</div></div>
+    <span class="btn primary" style="height:42px"><i data-i="plus"></i>New Bill <span class="kbd">F1</span></span>
+   </div>
+   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+    <div class="card" style="padding:16px;border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.12)"><span class="ib" style="width:36px;height:36px;border-radius:9px;background:var(--blue);color:#fff;display:grid;place-items:center"><i data-i="printer"></i></span><b style="display:block;margin-top:10px">Print thermal</b><span class="muted" style="font-size:11.5px">80mm · TVS RP-3200</span></div>
+    <div class="card" style="padding:16px"><span style="width:36px;height:36px;border-radius:9px;background:var(--green-l);color:var(--green);display:grid;place-items:center"><i data-i="whatsapp"></i></span><b style="display:block;margin-top:10px">WhatsApp</b><span class="muted" style="font-size:11.5px">98765 43210</span></div>
+    <div class="card" style="padding:16px"><span style="width:36px;height:36px;border-radius:9px;background:var(--violet-l);color:var(--violet);display:grid;place-items:center"><i data-i="mail"></i></span><b style="display:block;margin-top:10px">Email</b><span class="muted" style="font-size:11.5px">vijay.s@mail.com</span></div>
+    <div class="card" style="padding:16px"><span style="width:36px;height:36px;border-radius:9px;background:#f1f5f9;color:var(--text-2);display:grid;place-items:center"><i data-i="file"></i></span><b style="display:block;margin-top:10px">A4 tax invoice</b><span class="muted" style="font-size:11.5px">PDF with GST summary</span></div>
+   </div>
+   <div class="card" style="overflow:hidden">
+    <div class="card-h" style="padding-bottom:10px"><h3>GST summary</h3><span class="muted" style="font-size:12px">Intra-state · Karnataka (29)</span></div>
+    <table class="t">
+     <tr><th>HSN</th><th>Items</th><th class="r">Taxable value</th><th class="r">CGST</th><th class="r">SGST</th><th class="r">Total</th></tr>
+     <tr><td><b>6205 / 6109</b></td><td>Shirt, T-Shirt ×2 · 5%</td><td class="r num">₹1,757.12</td><td class="r num">₹43.93</td><td class="r num">₹43.93</td><td class="r num"><b>₹1,844.98</b></td></tr>
+     <tr><td><b>6203 / 6403 / 6211</b></td><td>Jeans, Shoes, Jacket · 12%</td><td class="r num">₹4,686.63</td><td class="r num">₹281.19</td><td class="r num">₹281.20</td><td class="r num"><b>₹5,249.02</b></td></tr>
+     <tr style="background:#f8fafd"><td colspan="2"><b>Total</b></td><td class="r num"><b>₹6,443.75</b></td><td class="r num"><b>₹325.12</b></td><td class="r num"><b>₹325.13</b></td><td class="r num"><b>₹7,094.00</b></td></tr>
+    </table>
+   </div>
+   <div class="card" style="padding:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+    <div><span class="muted" style="font-size:11.5px">Payments</span><br><b>UPI ₹5,000 + Cash ₹2,094</b></div>
+    <div><span class="muted" style="font-size:11.5px">Change returned</span><br><b>₹406.00</b></div>
+    <div><span class="muted" style="font-size:11.5px">Loyalty earned</span><br><b>+70 points</b></div>
+    <div><span class="muted" style="font-size:11.5px">Reprint</span><br><b>Allowed · Manager PIN</b></div>
+   </div>
+   <div class="card" style="flex:1;overflow:hidden">
+    <div class="card-h"><h3>Activity</h3><span class="muted" style="font-size:12px">Audit trail</span></div>
+    <div class="card-b" style="display:flex;flex-direction:column;gap:11px;font-size:12.5px">
+     <div class="row"><span class="chip green nodot" style="width:62px;justify-content:center">18:42</span><span>Invoice generated &amp; 6 units deducted from MG Road stock</span></div>
+     <div class="row"><span class="chip blue nodot" style="width:62px;justify-content:center">18:42</span><span>Payment captured · UPI ₹5,000 (UTR 6271…903) + Cash ₹2,094</span></div>
+     <div class="row"><span class="chip amber nodot" style="width:62px;justify-content:center">18:40</span><span>Bill discount ₹200 applied by Vijay K. (within 10% cashier limit)</span></div>
+    </div>
+   </div>
+  </div>
+  <div style="width:390px;flex:none;background:#e9edf5;border-radius:14px;display:flex;flex-direction:column;align-items:center;padding:16px 0;gap:10px">
+   <div class="row" style="gap:8px;font-size:12px;color:var(--muted)"><i data-i="eye" data-s="15"></i>Receipt preview · 80mm</div>
+   <div class="paper num">
+    <div class="c"><b style="font-size:15px;letter-spacing:.06em">VASTRA FASHIONS</b><br>MG Road, Bengaluru 560001<br>GSTIN 29ABCDE1234F1Z5 · Ph 080-41234567</div>
+    <hr><div class="c"><b>TAX INVOICE</b></div>
+    <div class="r"><span>Bill: MG-2026-08431</span><span>04/10/26 18:42</span></div>
+    <div class="r"><span>Cashier: Vijay K.</span><span>Ctr 2</span></div>
+    <div>Cust: Vijay Sharma 98765 43210</div>
+    <hr>
+    <div class="r"><b>Item</b><b>Qty x Rate&nbsp;&nbsp;&nbsp;Amt</b></div><hr>
+    <div class="it">Checked Casual Shirt L/Maroon<div class="r"><span>SH-MRN-L MRP 1499</span><span>1 x 999 &nbsp;&nbsp;999.00</span></div></div>
+    <div class="it">Slim Fit Denim Jeans 32/Indigo<div class="r"><span>JN-IND-32 MRP 2199</span><span>1 x 1599 1599.00</span></div></div>
+    <div class="it">Cotton Crew T-Shirt M/White<div class="r"><span>TS-WHT-M MRP 599</span><span>2 x 449 &nbsp;&nbsp;898.00</span></div></div>
+    <div class="it">Leather Oxford Shoes 9/Tan<div class="r"><span>SH-TAN-09 MRP 3499</span><span>1 x 2499 2499.00</span></div></div>
+    <div class="it">Track Jacket L/Green<div class="r"><span>TJ-GRN-L MRP 1999</span><span>1 x 1299 1299.00</span></div></div>
+    <hr>
+    <div class="r"><span>Sub Total (6 pcs)</span><span>7294.00</span></div>
+    <div class="r"><span>Bill Discount</span><span>-200.00</span></div>
+    <div class="r"><span>CGST incl.</span><span>325.12</span></div>
+    <div class="r"><span>SGST incl.</span><span>325.13</span></div>
+    <hr><div class="r tot"><span>NET PAYABLE</span><span>₹7,094.00</span></div><hr>
+    <div class="r"><span>UPI (6271..903)</span><span>5000.00</span></div>
+    <div class="r"><span>Cash / Change</span><span>2500.00 / 406.00</span></div>
+    <hr><div class="c">You saved ₹3,300 on MRP!<br>Exchange within 7 days with bill.</div>
+    <div class="qr" id="qr"></div>
+    <div class="c" style="margin-top:4px">Thank you · Visit again<br><span style="font-size:9px;color:#555">Billing by NPOS · Infinite Solution</span></div>
+   </div>
+  </div>
+ </div>
+</div></div>
+<script src="assets/app.js"></script>
+<script>
+let q='',p='111101111100100001101010101111001111000101000110101010110011100100111011111101011';for(let i=0;i<81;i++)q+=`<i style="${p[i]==='1'?'':'background:transparent'}"></i>`;document.getElementById('qr').innerHTML=q;
+</script></body></html>

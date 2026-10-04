@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Inventory</title>
+<link rel="stylesheet" href="assets/app.css"></head>
+<body><div class="shell">
+<aside class="side" data-side="tenant" data-active="inventory"></aside>
+<div class="main">
+ <div class="top">
+  <div><div class="crumb">Catalogue › Inventory</div><h1>Inventory</h1></div>
+  <div class="grow"></div>
+  <span class="btn">Store: MG Road<i data-i="down"></i></span>
+  <span class="btn"><i data-i="swap"></i>Stock Transfer</span>
+  <span class="btn"><i data-i="truck"></i>Receive Stock</span>
+  <span class="btn primary"><i data-i="plus"></i>New Adjustment</span>
+  <div class="me"><div class="av">AR</div><div><b>Anita Rao</b><span>Tenant Owner</span></div></div>
+ </div>
+ <div class="content">
+  <div class="kpis" style="grid-template-columns:repeat(5,1fr)">
+   <div class="card kpi"><div class="l"><span class="ib"><i data-i="box"></i></span>Inventory value (cost)</div><div class="v num">₹38.6L</div><div class="d">at purchase price · ₹61.2L at MRP</div></div>
+   <div class="card kpi"><div class="l"><span class="ib" style="background:var(--violet-l);color:var(--violet)"><i data-i="tag"></i></span>Active SKUs</div><div class="v num">6,912</div><div class="d">across 1,284 products</div></div>
+   <div class="card kpi"><div class="l"><span class="ib" style="background:var(--amber-l);color:var(--amber)"><i data-i="alert"></i></span>Low stock</div><div class="v num">23</div><div class="d">below minimum level</div></div>
+   <div class="card kpi"><div class="l"><span class="ib" style="background:var(--red-l);color:var(--red)"><i data-i="x"></i></span>Out of stock</div><div class="v num">6</div><div class="d">selling blocked unless override</div></div>
+   <div class="card kpi"><div class="l"><span class="ib" style="background:var(--green-l);color:var(--green)"><i data-i="check"></i></span>Pending approvals</div><div class="v num">3</div><div class="d">adjustments awaiting manager</div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 380px;gap:16px;flex:1;min-height:0">
+   <div class="card" style="overflow:hidden;display:flex;flex-direction:column">
+    <div style="padding:14px 16px" class="row">
+     <div class="tabs"><span class="on">Stock ledger</span><span>Current stock</span><span>Adjustments</span><span>Transfers</span><span>Valuation</span></div>
+     <div class="grow"></div>
+     <div class="search" style="width:180px;height:34px"><i data-i="search" data-s="15"></i>SKU or barcode</div>
+     
+    </div>
+    <table class="t">
+     <tr><th>Date / Time</th><th>SKU · Variant</th><th>Movement</th><th>Reference</th><th class="r">In</th><th class="r">Out</th><th class="r">Balance</th></tr>
+     <tr><td>04 Oct <span class="muted">18:41</span></td><td><div class="row"><div class="thumb" data-p="jacket" data-c="#15803d"></div><div><b>TJ-GRN-L</b><div class="muted" style="font-size:11px">Track Jacket · L · Green</div></div></div></td><td><span class="chip blue">Sale</span></td><td>MG-2026-08431</td><td class="r"></td><td class="r num down">−1</td><td class="r num"><b>8</b></td></tr>
+     <tr><td>04 Oct <span class="muted">17:12</span></td><td><div class="row"><div class="thumb" data-p="plaid" data-c="#9f1239"></div><div><b>SH-MRN-XL</b><div class="muted" style="font-size:11px">Checked Shirt · XL · Maroon</div></div></div></td><td><span class="chip violet">Return</span></td><td>RT-2026-00218</td><td class="r num up">+1</td><td class="r"></td><td class="r num"><b>10</b></td></tr>
+     <tr><td>04 Oct <span class="muted">12:30</span></td><td><div class="row"><div class="thumb" data-p="jeans" data-c="#1e3a8a"></div><div><b>JN-IND-32</b><div class="muted" style="font-size:11px">Slim Jeans · 32 · Indigo</div></div></div></td><td><span class="chip green">Purchase</span></td><td>PO-0912</td><td class="r num up">+24</td><td class="r"></td><td class="r num"><b>31</b></td></tr>
+     <tr><td>04 Oct <span class="muted">11:05</span></td><td><div class="row"><div class="thumb" data-p="dress" data-c="#db2777"></div><div><b>DR-PNK-M</b><div class="muted" style="font-size:11px">Floral Midi · M · Pink</div></div></div></td><td><span class="chip amber">Transfer out</span></td><td>TR-0044</td><td class="r"></td><td class="r num down">−5</td><td class="r num"><b>9</b></td></tr>
+     <tr><td>03 Oct <span class="muted">20:47</span></td><td><div class="row"><div class="thumb" data-p="tshirt" data-c="#f8fafc"></div><div><b>TS-WHT-M</b><div class="muted" style="font-size:11px">Crew T-Shirt · M · White</div></div></div></td><td><span class="chip red">Damage / loss</span></td><td>ADJ-0131</td><td class="r"></td><td class="r num down">−2</td><td class="r num"><b>54</b></td></tr>
+     <tr><td>03 Oct <span class="muted">19:20</span></td><td><div class="row"><div class="thumb" data-p="kurta" data-c="#0f766e"></div><div><b>KR-TEA-L</b><div class="muted" style="font-size:11px">Linen Kurta · L · Teal</div></div></div></td><td><span class="chip blue">Sale</span></td><td>MG-2026-08377</td><td class="r"></td><td class="r num down">−1</td><td class="r num"><b>2</b></td></tr>
+     <tr><td>03 Oct <span class="muted">10:02</span></td><td><div class="row"><div class="thumb" data-p="shoe" data-c="#b45309"></div><div><b>SH-TAN-09</b><div class="muted" style="font-size:11px">Oxford Shoes · UK 9 · Tan</div></div></div></td><td><span class="chip gray">Opening</span></td><td>COUNT-Q3</td><td class="r num up">+12</td><td class="r"></td><td class="r num"><b>12</b></td></tr>
+    </table>
+   </div>
+   <div class="card" style="display:flex;flex-direction:column">
+    <div class="card-h"><div><h3>New stock adjustment</h3><div class="sub">Requires manager approval above 5 units</div></div></div>
+    <div class="card-b" style="display:flex;flex-direction:column;gap:12px">
+     <div class="field"><label>Scan or search SKU</label><div class="input" style="border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.12)"><i data-i="barcode" data-s="16"></i>8901234561127<span class="caret chip green" style="font-size:10px">Found</span></div></div>
+     <div class="row" style="background:var(--bg);border-radius:10px;padding:10px"><div class="thumb" data-p="hoodie" data-c="#334155"></div><div class="grow"><b>Fleece Pullover Hoodie</b><div class="muted" style="font-size:11px">HD-CHR-L · L · Charcoal</div></div><div style="text-align:right"><span class="muted" style="font-size:11px">On hand</span><br><b>4</b></div></div>
+     <div class="field"><label>Adjustment type</label><div class="row" style="gap:6px"><span class="btn sm" style="border-color:var(--blue);color:var(--blue);background:var(--blue-ll)">Damage / loss</span><span class="btn sm">Found</span><span class="btn sm">Recount</span></div></div>
+     <div class="row" style="gap:10px"><div class="field grow"><label>Quantity</label><div class="input num">− 1</div></div><div class="field grow"><label>New balance</label><div class="input num" style="background:var(--bg)">3</div></div></div>
+     <div class="field"><label>Reason</label><div class="input ph" style="height:58px;align-items:flex-start;padding-top:10px">Zip broken – returned to vendor</div></div>
+     <div class="row" style="gap:8px;font-size:11.5px;color:var(--muted)"><i data-i="shield" data-s="14"></i>Logged in audit trail with user &amp; timestamp</div>
+     <span class="btn primary" style="justify-content:center;height:40px">Submit adjustment</span>
+    </div>
+   </div>
+  </div>
+ </div>
+</div></div>
+<script src="assets/app.js"></script></body></html>

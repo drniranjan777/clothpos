@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Reports</title>
+<link rel="stylesheet" href="assets/app.css"></head>
+<body><div class="shell">
+<aside class="side" data-side="tenant" data-active="reports"></aside>
+<div class="main">
+ <div class="top">
+  <div><div class="crumb">Insights › Reports</div><h1>Sales Reports</h1></div>
+  <div class="grow"></div>
+  <div class="tabs"><span class="on">Sales</span><span>Products</span><span>Payments</span><span>Inventory</span><span>Returns</span><span>Audit</span></div>
+  <span class="btn"><i data-i="calendar"></i>Sep 2026<i data-i="down"></i></span>
+  <span class="btn">All stores<i data-i="down"></i></span>
+  <span class="btn primary"><i data-i="download"></i>Export</span>
+ </div>
+ <div class="content">
+  <div class="kpis" style="grid-template-columns:repeat(5,1fr)">
+   <div class="card kpi"><div class="l">Net sales</div><div class="v num">₹42.8L</div><div class="d"><span class="up">▲ 18.2%</span> vs Aug</div></div>
+   <div class="card kpi"><div class="l">Invoices</div><div class="v num">3,046</div><div class="d"><span class="up">▲ 9.6%</span></div></div>
+   <div class="card kpi"><div class="l">Avg bill value</div><div class="v num">₹1,405</div><div class="d"><span class="up">▲ ₹102</span></div></div>
+   <div class="card kpi"><div class="l">Gross margin</div><div class="v num">41.3%</div><div class="d"><span class="down">▼ 0.8 pt</span> festive markdowns</div></div>
+   <div class="card kpi"><div class="l">Return rate</div><div class="v num">3.1%</div><div class="d">₹1.33L value · top reason: size</div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:16px">
+   <div class="card">
+    <div class="card-h"><div><h3>Store-wise daily sales</h3><div class="sub">September 2026 · weekly totals</div></div><div class="legend"><span><i style="background:#1d4ed8"></i>MG Road</span><span><i style="background:#93c5fd"></i>Indiranagar</span></div></div>
+    <div class="card-b"><div data-bars="[612000,684000,748000,812000,736000]" data-bars2="[318000,352000,401000,436000,392000]" data-labels="Wk 1,Wk 2,Wk 3,Wk 4,Wk 5" data-w="690" data-h="180"></div></div>
+   </div>
+   <div class="card">
+    <div class="card-h"><div><h3>Category-wise sales</h3><div class="sub">Share of net sales</div></div></div>
+    <div class="card-b" style="display:flex;flex-direction:column;gap:11px;padding-top:16px">
+     <div><div class="row between" style="font-size:12px;margin-bottom:5px"><span>Men's Wear</span><b class="num">₹13.7L · 32%</b></div><div class="bar-track"><i style="width:100%"></i></div></div>
+     <div><div class="row between" style="font-size:12px;margin-bottom:5px"><span>Women's Wear</span><b class="num">₹11.1L · 26%</b></div><div class="bar-track"><i style="width:81%"></i></div></div>
+     <div><div class="row between" style="font-size:12px;margin-bottom:5px"><span>Dresses &amp; Ethnic</span><b class="num">₹7.7L · 18%</b></div><div class="bar-track"><i style="width:56%"></i></div></div>
+     <div><div class="row between" style="font-size:12px;margin-bottom:5px"><span>Footwear</span><b class="num">₹4.7L · 11%</b></div><div class="bar-track"><i style="width:34%"></i></div></div>
+     <div><div class="row between" style="font-size:12px;margin-bottom:5px"><span>Jewellery &amp; Add-ons</span><b class="num">₹3.4L · 8%</b></div><div class="bar-track"><i style="width:25%"></i></div></div>
+     <div><div class="row between" style="font-size:12px;margin-bottom:5px"><span>Others</span><b class="num">₹2.1L · 5%</b></div><div class="bar-track"><i style="width:15%"></i></div></div>
+    </div>
+   </div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:16px;flex:1;min-height:0">
+   <div class="card">
+    <div class="card-h"><div><h3>Size-wise units</h3><div class="sub">Apparel only</div></div></div>
+    <div class="card-b"><div data-bars="[640,1420,1910,1380,520,190]" data-labels="S,M,L,XL,2XL,3XL" data-w="320" data-h="220"></div></div>
+   </div>
+   <div class="card">
+    <div class="card-h"><div><h3>Top colours</h3><div class="sub">Units sold</div></div></div>
+    <div class="card-b" style="display:flex;flex-direction:column;gap:10px;padding-top:16px">
+     <div class="row"><i style="width:14px;height:14px;border-radius:4px;background:#1e3a8a;display:inline-block"></i><span class="grow">Indigo / Navy</span><b class="num">1,284</b></div>
+     <div class="row"><i style="width:14px;height:14px;border-radius:4px;background:#f8fafc;border:1px solid #cbd5e1;display:inline-block"></i><span class="grow">White</span><b class="num">1,102</b></div>
+     <div class="row"><i style="width:14px;height:14px;border-radius:4px;background:#0f172a;display:inline-block"></i><span class="grow">Black</span><b class="num">968</b></div>
+     <div class="row"><i style="width:14px;height:14px;border-radius:4px;background:#9f1239;display:inline-block"></i><span class="grow">Maroon</span><b class="num">611</b></div>
+     <div class="row"><i style="width:14px;height:14px;border-radius:4px;background:#15803d;display:inline-block"></i><span class="grow">Green</span><b class="num">437</b></div>
+     <div class="row"><i style="width:14px;height:14px;border-radius:4px;background:#db2777;display:inline-block"></i><span class="grow">Pink</span><b class="num">402</b></div>
+     <div class="row"><i style="width:14px;height:14px;border-radius:4px;background:#b45309;display:inline-block"></i><span class="grow">Tan / Brown</span><b class="num">356</b></div>
+     <div class="row"><i style="width:14px;height:14px;border-radius:4px;background:#0f766e;display:inline-block"></i><span class="grow">Teal</span><b class="num">219</b></div>
+     <div style="border-top:1px solid var(--line-2);padding-top:10px;font-size:11.5px" class="muted">Dead stock alert: 38 SKUs in Mustard &amp; Lilac unsold for 90+ days</div>
+    </div>
+   </div>
+   <div class="card" style="overflow:hidden">
+    <div class="card-h" style="padding-bottom:10px"><h3>Cashier performance</h3><span class="muted" style="font-size:12px">All stores</span></div>
+    <table class="t">
+     <tr><th>Cashier</th><th class="r">Bills</th><th class="r">Sales</th><th class="r">Disc. %</th><th class="r">Variance</th></tr>
+     <tr><td><b>Vijay Kumar</b></td><td class="r num">812</td><td class="r num">₹11.6L</td><td class="r num">2.4%</td><td class="r"><span class="chip green nodot">₹0</span></td></tr>
+     <tr><td><b>Priya S.</b></td><td class="r num">774</td><td class="r num">₹10.9L</td><td class="r num">3.1%</td><td class="r"><span class="chip amber nodot">−₹120</span></td></tr>
+     <tr><td><b>Rahul M.</b></td><td class="r num">566</td><td class="r num">₹7.4L</td><td class="r num">6.8%</td><td class="r"><span class="chip red nodot">−₹850</span></td></tr>
+     <tr><td><b>Sneha P.</b></td><td class="r num">502</td><td class="r num">₹6.9L</td><td class="r num">2.9%</td><td class="r"><span class="chip green nodot">₹0</span></td></tr>
+     <tr><td><b>Imran K.</b></td><td class="r num">392</td><td class="r num">₹5.8L</td><td class="r num">3.4%</td><td class="r"><span class="chip green nodot">+₹40</span></td></tr>
+    </table>
+   </div>
+  </div>
+ </div>
+</div></div>
+<script src="assets/app.js"></script></body></html>

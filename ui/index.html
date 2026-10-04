@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Clothing POS – UI Screens</title>
+<link rel="stylesheet" href="assets/app.css">
+<style>
+body{background:var(--navy);color:#fff}
+.cv{height:900px;padding:56px 72px;display:flex;flex-direction:column;background:radial-gradient(800px 500px at 85% 0%,#1c3aa9 0,transparent 60%)}
+.cv h1{font-size:44px;letter-spacing:-.03em;margin-top:34px;line-height:1.1}
+.cv h1 span{color:#60a5fa}
+.cv p{color:#9aa8d6;font-size:15px;margin-top:10px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 26px;margin-top:40px}
+.grid a{display:flex;align-items:center;gap:14px;padding:13px 16px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);color:#fff;text-decoration:none}
+.grid a .n{width:30px;height:30px;border-radius:8px;background:var(--blue);display:grid;place-items:center;font-weight:700;font-size:12.5px;flex:none}
+.grid a b{font-size:14px} .grid a span{display:block;font-size:12px;color:#9aa8d6;margin-top:2px}
+.grid h4{grid-column:1/-1;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#6b7aaa;margin-top:6px}
+</style></head>
+<body><div class="cv">
+ <div class="row" style="gap:14px"><img src="assets/logo-light.png" alt="NPOS" style="height:88px;display:block"><span style="font-size:12px;color:#8d9bc7;border-left:1px solid rgba(255,255,255,.18);padding-left:14px">Clothing Shop POS &amp;<br>Barcode Billing SaaS</span></div>
+ <h1>UI Screens · <span>Scan. Bill. Done.</span></h1>
+ <p>Multi-tenant retail POS · Inventory · Billing · Subscription management — screen designs v1.0 based on the BRD · 1440 × 900</p>
+ <div class="grid">
+  <h4>Store / POS</h4>
+  <a href="pos-billing.html"><span class="n">01</span><div><b>POS Billing — Home</b><span>Barcode scan, category grid, cart, GST totals</span></div></a>
+  <a href="pos-payment.html"><span class="n">02</span><div><b>Payment</b><span>Cash, UPI, card, wallet, split payment &amp; change</span></div></a>
+  <a href="invoice.html"><span class="n">03</span><div><b>Invoice &amp; Thermal Receipt</b><span>Print 80mm, WhatsApp, GST summary</span></div></a>
+  <a href="dashboard.html"><span class="n">04</span><div><b>Store Dashboard</b><span>Sales, payment mix, top variants, low stock</span></div></a>
+  <a href="products.html"><span class="n">05</span><div><b>Products &amp; Variants</b><span>Size × colour matrix, SKU, barcode, price lists</span></div></a>
+  <a href="inventory.html"><span class="n">06</span><div><b>Inventory</b><span>Stock ledger, adjustments, transfers</span></div></a>
+  <a href="customers.html"><span class="n">07</span><div><b>Customers</b><span>Mobile lookup, purchase history, loyalty</span></div></a>
+  <a href="returns.html"><span class="n">08</span><div><b>Returns &amp; Exchange</b><span>Size/colour exchange, refund, store credit</span></div></a>
+  <a href="shift-closing.html"><span class="n">09</span><div><b>Shift &amp; Day Closing</b><span>Cash count, variance, manager confirmation</span></div></a>
+  <a href="reports.html"><span class="n">10</span><div><b>Reports</b><span>Store, category, size, colour, cashier</span></div></a>
+  <h4>Super Admin</h4>
+  <a href="sa-dashboard.html"><span class="n">11</span><div><b>SaaS Dashboard</b><span>Tenants, MRR/ARR, expiries, failed payments</span></div></a>
+  <a href="sa-tenants.html"><span class="n">12</span><div><b>Tenants</b><span>Status, limits, entitlements, actions</span></div></a>
+  <a href="sa-plans.html"><span class="n">13</span><div><b>Subscription Plans</b><span>Pricing, trials, grace, feature matrix</span></div></a>
+  <a href="login.html"><span class="n">14</span><div><b>Sign in</b><span>Role-based login &amp; shift start</span></div></a>
+ </div>
+</div>
+<script src="assets/app.js"></script></body></html>

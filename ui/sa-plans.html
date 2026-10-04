@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Subscription Plans</title>
+<link rel="stylesheet" href="assets/app.css">
+<style>
+.plan{padding:20px;display:flex;flex-direction:column;gap:12px;position:relative}
+.plan .price{font-size:30px;font-weight:800;letter-spacing:-.02em}
+.plan .price small{font-size:13px;color:var(--muted);font-weight:500}
+.plan ul{list-style:none;display:flex;flex-direction:column;gap:8px;font-size:12.5px}
+.plan li{display:flex;gap:8px;align-items:center}
+.plan li svg{width:15px;height:15px;color:var(--green);stroke-width:2.4}
+.plan li.no{color:var(--faint)} .plan li.no svg{color:#cbd5e1}
+.plan.hl{border:2px solid var(--blue);box-shadow:0 10px 30px rgba(29,78,216,.15)}
+.ribbon{position:absolute;top:-11px;left:20px;background:var(--blue);color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px}
+</style></head>
+<body><div class="shell">
+<aside class="side" data-side="admin" data-active="sa-plans"></aside>
+<div class="main">
+ <div class="top">
+  <div><div class="crumb">Platform › Subscription Plans</div><h1>Subscription Plans</h1></div>
+  <div class="grow"></div>
+  <div class="tabs"><span class="on">Monthly</span><span>Yearly · save 17%</span></div>
+  <span class="btn primary"><i data-i="plus"></i>Create Plan</span>
+  <div class="me"><div class="av" style="background:var(--violet-l);color:var(--violet)">SA</div><div><b>Super Admin</b><span>2FA enabled</span></div></div>
+ </div>
+ <div class="content">
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:6px">
+   <div class="card plan">
+    <div class="row between"><b style="font-size:16px">Starter</b><span class="chip green">Active</span></div>
+    <div class="muted" style="font-size:12px">Single-counter boutiques</div>
+    <div class="price num">₹999<small> / month</small></div>
+    <div class="row" style="gap:6px"><span class="chip gray nodot">14-day trial</span><span class="chip gray nodot">7-day grace</span><span class="chip blue nodot">512 tenants</span></div>
+    <ul><li><i data-i="check"></i>1 store · 3 users</li><li><i data-i="check"></i>2,000 SKUs</li><li><i data-i="check"></i>POS billing, barcode, GST invoice</li><li><i data-i="check"></i>Inventory &amp; basic reports</li><li class="no"><i data-i="x"></i>Purchases &amp; suppliers</li><li class="no"><i data-i="x"></i>Multi-store transfers</li></ul>
+    <span class="btn" style="justify-content:center;margin-top:auto"><i data-i="edit"></i>Edit plan</span>
+   </div>
+   <div class="card plan hl">
+    <span class="ribbon">Most popular</span>
+    <div class="row between"><b style="font-size:16px">Professional</b><span class="chip green">Active</span></div>
+    <div class="muted" style="font-size:12px">Growing multi-counter stores</div>
+    <div class="price num">₹2,499<small> / month</small></div>
+    <div class="row" style="gap:6px"><span class="chip gray nodot">14-day trial</span><span class="chip gray nodot">7-day grace</span><span class="chip blue nodot">398 tenants</span></div>
+    <ul><li><i data-i="check"></i>5 stores · 25 users</li><li><i data-i="check"></i>10,000 SKUs</li><li><i data-i="check"></i>Everything in Starter</li><li><i data-i="check"></i>Purchases, suppliers, returns</li><li><i data-i="check"></i>Multi-store &amp; advanced reports</li><li class="no"><i data-i="x"></i>Loyalty &amp; WhatsApp invoices</li></ul>
+    <span class="btn primary" style="justify-content:center;margin-top:auto"><i data-i="edit"></i>Edit plan</span>
+   </div>
+   <div class="card plan">
+    <div class="row between"><b style="font-size:16px">Enterprise</b><span class="chip green">Active</span></div>
+    <div class="muted" style="font-size:12px">Chains &amp; franchise networks</div>
+    <div class="price num">Custom<small> · from ₹9,999</small></div>
+    <div class="row" style="gap:6px"><span class="chip gray nodot">No trial</span><span class="chip gray nodot">15-day grace</span><span class="chip blue nodot">122 tenants</span></div>
+    <ul><li><i data-i="check"></i>Unlimited stores &amp; users</li><li><i data-i="check"></i>Unlimited SKUs</li><li><i data-i="check"></i>Everything in Professional</li><li><i data-i="check"></i>Loyalty, WhatsApp, offline sync</li><li><i data-i="check"></i>Dedicated success manager</li><li><i data-i="check"></i>Priority SLA support</li></ul>
+    <span class="btn" style="justify-content:center;margin-top:auto"><i data-i="edit"></i>Edit plan</span>
+   </div>
+  </div>
+  <div class="card" style="overflow:hidden;flex:1">
+   <div class="card-h" style="padding-bottom:10px"><div><h3>Feature &amp; limit matrix</h3><div class="sub">Changes apply to new billing cycles; every change is written to the audit log</div></div></div>
+   <table class="t">
+    <tr><th>Module / Limit</th><th class="r">Starter</th><th class="r">Professional</th><th class="r">Enterprise</th><th>Overridable per tenant</th></tr>
+    
+    <tr><td><b>Max stores</b></td><td class="r num">1</td><td class="r num">5</td><td class="r num">Unlimited</td><td><span class="toggle on"></span></td></tr>
+    <tr><td><b>Max users</b></td><td class="r num">3</td><td class="r num">25</td><td class="r num">Unlimited</td><td><span class="toggle on"></span></td></tr>
+    <tr><td><b>Max products / SKUs</b></td><td class="r num">2,000</td><td class="r num">10,000</td><td class="r num">Unlimited</td><td><span class="toggle on"></span></td></tr>
+    <tr><td><b>Multi-store stock transfer</b></td><td class="r num"><span class="toggle"></span></td><td class="r num"><span class="toggle on"></span></td><td class="r num"><span class="toggle on"></span></td><td><span class="toggle on"></span></td></tr>
+    <tr><td><b>WhatsApp / email invoice</b></td><td class="r num"><span class="toggle"></span></td><td class="r num"><span class="toggle"></span></td><td class="r num"><span class="toggle on"></span></td><td><span class="toggle on"></span></td></tr>
+    <tr><td><b>Offline POS sync</b></td><td class="r num"><span class="toggle on"></span></td><td class="r num"><span class="toggle on"></span></td><td class="r num"><span class="toggle on"></span></td><td><span class="toggle"></span></td></tr>
+    <tr><td><b>Monthly transactions</b></td><td class="r num">5,000</td><td class="r num">25,000</td><td class="r num">Unlimited</td><td><span class="toggle on"></span></td></tr>
+    <tr><td><b>Purchases &amp; suppliers</b></td><td class="r"><span class="toggle"></span></td><td class="r"><span class="toggle on"></span></td><td class="r"><span class="toggle on"></span></td><td><span class="toggle on"></span></td></tr>
+   </table>
+  </div>
+ </div>
+</div></div>
+<script src="assets/app.js"></script></body></html>

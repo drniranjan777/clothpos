@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Super Admin Dashboard</title>
+<link rel="stylesheet" href="assets/app.css"></head>
+<body><div class="shell">
+<aside class="side" data-side="admin" data-active="sa-dashboard"></aside>
+<div class="main">
+ <div class="top">
+  <div><div class="crumb">Platform</div><h1>SaaS Overview</h1></div>
+  <div class="grow"></div>
+  <div class="search"><i data-i="search" data-s="16"></i>Search tenants, GSTIN, owner…</div>
+  <span class="btn"><i data-i="calendar"></i>Last 12 months<i data-i="down"></i></span>
+  <span class="btn primary"><i data-i="plus"></i>Onboard Tenant</span>
+  <div class="iconbtn"><i data-i="bell"></i><span class="dot"></span></div>
+  <div class="me"><div class="av" style="background:var(--violet-l);color:var(--violet)">SA</div><div><b>Super Admin</b><span>2FA enabled</span></div></div>
+ </div>
+ <div class="content">
+  <div class="kpis" style="grid-template-columns:repeat(6,1fr)">
+   <div class="card kpi"><div class="l">Total tenants</div><div class="v num">1,248</div><div class="d"><span class="up">+64</span> this month</div></div>
+   <div class="card kpi"><div class="l"><span class="chip green" style="padding:2px 7px">Active</span></div><div class="v num">1,032</div><div class="d">82.7% of total</div></div>
+   <div class="card kpi"><div class="l"><span class="chip blue" style="padding:2px 7px">Trial</span></div><div class="v num">118</div><div class="d">34 convert this week</div></div>
+   <div class="card kpi"><div class="l"><span class="chip red" style="padding:2px 7px">Expired / Suspended</span></div><div class="v num">98</div><div class="d"><span class="down">21 past due</span></div></div>
+   <div class="card kpi" style="background:var(--navy);border-color:var(--navy);color:#fff"><div class="l" style="color:#9aa8d6">MRR</div><div class="v num">₹18.4L</div><div class="d" style="color:#9aa8d6"><span style="color:#86efac;font-weight:600">▲ 6.1%</span> MoM</div></div>
+   <div class="card kpi"><div class="l">ARR run-rate</div><div class="v num">₹2.21Cr</div><div class="d">Churn 1.9% / month</div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1.7fr 1fr;gap:16px">
+   <div class="card">
+    <div class="card-h"><div><h3>MRR growth</h3><div class="sub">Subscription revenue, ₹ per month</div></div><div class="legend"><span><i style="background:#1d4ed8"></i>New + expansion</span><span><i style="background:#93c5fd"></i>Renewals</span></div></div>
+    <div class="card-b"><div data-bars="[420000,455000,470000,512000,538000,561000,602000,640000,668000,701000,742000,795000]" data-bars2="[820000,836000,861000,880000,902000,931000,948000,972000,990000,1010000,1030000,1045000]" data-labels="Nov,Dec,Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct" data-w="740" data-h="180"></div></div>
+   </div>
+   <div class="card">
+    <div class="card-h"><div><h3>Plan distribution</h3><div class="sub">Active subscriptions</div></div></div>
+    <div class="card-b row" style="gap:20px;padding-top:16px">
+     <div style="position:relative;width:136px;height:136px;flex:none"><div data-donut="[512,398,122]" data-colors="#93c5fd,#1d4ed8,#0a1640" data-r="58" data-t="20"></div><div style="position:absolute;inset:0;display:grid;place-items:center;text-align:center"><div><b style="font-size:18px">1,032</b><div class="muted" style="font-size:11px">active</div></div></div></div>
+     <div class="grow" style="display:flex;flex-direction:column;gap:12px;white-space:nowrap">
+      <div><div class="row between"><span class="row" style="gap:8px"><i style="width:10px;height:10px;border-radius:3px;background:#93c5fd;display:inline-block"></i>Starter</span><b>512</b></div><div class="muted" style="font-size:11px;margin-left:18px">₹999/mo · ₹5.1L MRR</div></div>
+      <div><div class="row between"><span class="row" style="gap:8px"><i style="width:10px;height:10px;border-radius:3px;background:#1d4ed8;display:inline-block"></i>Professional</span><b>398</b></div><div class="muted" style="font-size:11px;margin-left:18px">₹2,499/mo · ₹9.9L MRR</div></div>
+      <div><div class="row between"><span class="row" style="gap:8px"><i style="width:10px;height:10px;border-radius:3px;background:#0a1640;display:inline-block"></i>Enterprise</span><b>122</b></div><div class="muted" style="font-size:11px;margin-left:18px">custom · ₹3.4L MRR</div></div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div style="display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:16px;flex:1;min-height:0">
+   <div class="card" style="overflow:hidden">
+    <div class="card-h" style="padding-bottom:10px"><h3>Recent signups</h3><a class="muted" style="font-size:12px">All tenants →</a></div>
+    <table class="t">
+     <tr><th>Tenant</th><th>Plan</th><th>Status</th></tr>
+     <tr><td><b>Kurta Kraft</b><div class="muted" style="font-size:11px">Jaipur · today</div></td><td>Professional</td><td><span class="chip blue">Trial · 14d</span></td></tr>
+     <tr><td><b>Little Threads Kids</b><div class="muted" style="font-size:11px">Pune · yesterday</div></td><td>Starter</td><td><span class="chip green">Active</span></td></tr>
+     <tr><td><b>Saree Sansaar</b><div class="muted" style="font-size:11px">Varanasi · 2 Oct</div></td><td>Enterprise</td><td><span class="chip amber">Payment pending</span></td></tr>
+     <tr><td><b>Denim Dock</b><div class="muted" style="font-size:11px">Chennai · 1 Oct</div></td><td>Starter</td><td><span class="chip blue">Trial · 11d</span></td></tr>
+     <tr><td><b>Royal Sherwani</b><div class="muted" style="font-size:11px">Hyderabad · 30 Sep</div></td><td>Professional</td><td><span class="chip green">Active</span></td></tr>
+    </table>
+   </div>
+   <div class="card">
+    <div class="card-h"><h3>Expiring in 7 days</h3><span class="chip amber">27 tenants</span></div>
+    <div class="card-b" style="display:flex;flex-direction:column;gap:12px">
+     <div class="row"><div class="av-s" style="background:#fef3c7;color:#b45309">FH</div><div class="grow"><b>Fashion Hub</b><div class="muted" style="font-size:11px">Professional · 06 Oct</div></div><span class="btn sm">Remind</span></div>
+     <div class="row"><div class="av-s" style="background:#dcfce7;color:#15803d">GW</div><div class="grow"><b>Groom Wear</b><div class="muted" style="font-size:11px">Starter · 08 Oct</div></div><span class="btn sm">Remind</span></div>
+     <div class="row"><div class="av-s" style="background:#e0e7ff;color:#4338ca">TT</div><div class="grow"><b>Trendy Tots</b><div class="muted" style="font-size:11px">Starter · 09 Oct</div></div><span class="btn sm">Remind</span></div>
+     <div class="row"><div class="av-s" style="background:#fce7f3;color:#be185d">NB</div><div class="grow"><b>Nari Boutique</b><div class="muted" style="font-size:11px">Professional · 10 Oct</div></div><span class="btn sm">Remind</span></div>
+    </div>
+   </div>
+   <div class="card">
+    <div class="card-h"><h3>Failed payments</h3><span class="chip red">3 need action</span></div>
+    <div class="card-b" style="display:flex;flex-direction:column;gap:12px">
+     <div class="row"><span style="width:30px;height:30px;border-radius:8px;background:var(--red-l);color:var(--red);display:grid;place-items:center"><i data-i="card" data-s="16"></i></span><div class="grow"><b>Style Street</b><div class="muted" style="font-size:11px">₹2,499 · card declined · 2 retries</div></div><span class="chip amber nodot">Grace 5d</span></div>
+     <div class="row"><span style="width:30px;height:30px;border-radius:8px;background:var(--red-l);color:var(--red);display:grid;place-items:center"><i data-i="upi" data-s="16"></i></span><div class="grow"><b>Saree Sansaar</b><div class="muted" style="font-size:11px">₹14,999 · UPI mandate failed</div></div><span class="chip amber nodot">Grace 7d</span></div>
+     <div class="row"><span style="width:30px;height:30px;border-radius:8px;background:var(--red-l);color:var(--red);display:grid;place-items:center"><i data-i="bank" data-s="16"></i></span><div class="grow"><b>Ethnic Elegance</b><div class="muted" style="font-size:11px">₹999 · NEFT not received</div></div><span class="chip red nodot">Past due</span></div>
+     <div class="row" style="border-top:1px solid var(--line-2);padding-top:12px;font-size:12px"><i data-i="history" data-s="15"></i><span class="muted">All actions are recorded in audit logs</span></div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div></div>
+<script src="assets/app.js"></script></body></html>

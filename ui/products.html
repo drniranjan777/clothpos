@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Products & Variants</title>
+<link rel="stylesheet" href="assets/app.css">
+<style>
+.mx{display:grid;grid-template-columns:92px repeat(5,1fr);gap:6px;font-size:12px}
+.mx .h{font-size:10.5px;font-weight:600;color:var(--muted);text-align:center;padding:4px 0}
+.mx .c{display:flex;align-items:center;gap:7px;font-weight:600;font-size:12px}
+.mx .c i{width:12px;height:12px;border-radius:4px;border:1px solid rgba(0,0,0,.15)}
+.mx .s{height:40px;border-radius:8px;border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:700}
+.mx .s small{font-size:9px;color:var(--faint);font-weight:500}
+.mx .s.low{background:var(--amber-l);border-color:#f6d9a8;color:var(--amber)}
+.mx .s.out{background:var(--red-l);border-color:#f8cdb8;color:var(--red)}
+.mx .s.sel{border:2px solid var(--blue);background:var(--blue-ll)}
+.bc{display:flex;gap:1.4px;height:46px;align-items:stretch}
+.bc i{background:#0f172a}
+</style></head>
+<body><div class="shell">
+<aside class="side" data-side="tenant" data-active="products"></aside>
+<div class="main">
+ <div class="top">
+  <div><div class="crumb">Catalogue › Products</div><h1>Products &amp; Variants</h1></div>
+  <div class="grow"></div>
+  <span class="btn"><i data-i="download"></i>Import / Export</span>
+  <span class="btn"><i data-i="barcode"></i>Print Barcode Labels</span>
+  <span class="btn primary"><i data-i="plus"></i>Add Product</span>
+  <div class="me"><div class="av">AR</div><div><b>Anita Rao</b><span>Tenant Owner</span></div></div>
+ </div>
+ <div class="content" style="flex-direction:row">
+  <div style="flex:1;display:flex;flex-direction:column;gap:14px;min-width:0">
+   <div class="row">
+    <div class="search" style="width:280px;background:#fff"><i data-i="search" data-s="16"></i>Name, SKU, barcode, brand…</div>
+    <span class="btn">Category: All<i data-i="down"></i></span><span class="btn">Brand: All<i data-i="down"></i></span><span class="btn">Status: Active<i data-i="down"></i></span>
+    
+   </div>
+   <div class="card" style="overflow:hidden">
+    <table class="t">
+     <tr><th style="width:30px"><span class="check"></span></th><th>Product</th><th>Category · Brand</th><th class="r">Stock</th><th class="r">MRP / Price</th><th>Status</th></tr>
+     <tr style="background:var(--blue-ll)"><td><span class="check on"></span></td><td><div class="row"><div class="thumb" data-p="plaid" data-c="#9f1239"></div><div><b>Checked Casual Shirt</b><div class="muted" style="font-size:11px">SH-CHK-001</div></div></div></td><td>Shirts &amp; Kurtas<div class="muted" style="font-size:11px">Vastra Basics</div></td><td class="r num"><b>142</b><div class="muted" style="font-size:11px">15 variants</div></td><td class="r num"><span class="strike">₹1,499</span> <b>₹999</b></td><td><span class="chip green">Active</span></td></tr>
+     <tr><td><span class="check"></span></td><td><div class="row"><div class="thumb" data-p="jeans" data-c="#1e3a8a"></div><div><b>Slim Fit Denim Jeans</b><div class="muted" style="font-size:11px">JN-SLM-014</div></div></div></td><td>Jeans &amp; Trousers<div class="muted" style="font-size:11px">Urban Denim</div></td><td class="r num"><b>96</b><div class="muted" style="font-size:11px">12 variants</div></td><td class="r num"><span class="strike">₹2,199</span> <b>₹1,599</b></td><td><span class="chip green">Active</span></td></tr>
+     <tr><td><span class="check"></span></td><td><div class="row"><div class="thumb" data-p="tshirt" data-c="#f8fafc"></div><div><b>Cotton Crew T-Shirt</b><div class="muted" style="font-size:11px">TS-CRW-007</div></div></div></td><td>T-Shirts &amp; Tops<div class="muted" style="font-size:11px">Vastra Basics</div></td><td class="r num"><b>318</b><div class="muted" style="font-size:11px">20 variants</div></td><td class="r num"><span class="strike">₹599</span> <b>₹449</b></td><td><span class="chip green">Active</span></td></tr>
+     <tr><td><span class="check"></span></td><td><div class="row"><div class="thumb" data-p="dress" data-c="#db2777"></div><div><b>Floral Midi Dress</b><div class="muted" style="font-size:11px">DR-FLR-022</div></div></div></td><td>Dresses &amp; Ethnic<div class="muted" style="font-size:11px">Bloom</div></td><td class="r num"><b>41</b><div class="muted" style="font-size:11px">8 variants</div></td><td class="r num"><span class="strike">₹2,499</span> <b>₹1,799</b></td><td><span class="chip green">Active</span></td></tr>
+     <tr><td><span class="check"></span></td><td><div class="row"><div class="thumb" data-p="kurta" data-c="#0f766e"></div><div><b>Linen Festive Kurta</b><div class="muted" style="font-size:11px">KR-LIN-005</div></div></div></td><td>Shirts &amp; Kurtas<div class="muted" style="font-size:11px">Utsav</div></td><td class="r num"><b>14</b><div class="muted" style="font-size:11px">9 variants</div></td><td class="r num"><span class="strike">₹2,499</span> <b>₹1,799</b></td><td><span class="chip amber">Low stock</span></td></tr>
+     <tr><td><span class="check"></span></td><td><div class="row"><div class="thumb" data-p="saree" data-c="#7c3aed"></div><div><b>Banarasi Silk Saree</b><div class="muted" style="font-size:11px">SR-BNR-031</div></div></div></td><td>Dresses &amp; Ethnic<div class="muted" style="font-size:11px">Utsav</div></td><td class="r num"><b>22</b><div class="muted" style="font-size:11px">4 variants</div></td><td class="r num"><span class="strike">₹6,999</span> <b>₹5,499</b></td><td><span class="chip green">Active</span></td></tr>
+     <tr><td><span class="check"></span></td><td><div class="row"><div class="thumb" data-p="shoe" data-c="#b45309"></div><div><b>Leather Oxford Shoes</b><div class="muted" style="font-size:11px">FW-OXF-009</div></div></div></td><td>Footwear<div class="muted" style="font-size:11px">Stride</div></td><td class="r num"><b>48</b><div class="muted" style="font-size:11px">10 variants</div></td><td class="r num"><span class="strike">₹3,499</span> <b>₹2,499</b></td><td><span class="chip green">Active</span></td></tr>
+     <tr><td><span class="check"></span></td><td><div class="row"><div class="thumb" data-p="hoodie" data-c="#334155"></div><div><b>Fleece Pullover Hoodie</b><div class="muted" style="font-size:11px">WW-HOD-012</div></div></div></td><td>Winter Wear<div class="muted" style="font-size:11px">North Loom</div></td><td class="r num"><b>4</b><div class="muted" style="font-size:11px">8 variants</div></td><td class="r num"><span class="strike">₹1,999</span> <b>₹1,499</b></td><td><span class="chip amber">Low stock</span></td></tr>
+     <tr><td><span class="check"></span></td><td><div class="row"><div class="thumb" data-p="jewel" data-c="#be123c"></div><div><b>Kundan Pendant Set</b><div class="muted" style="font-size:11px">JW-KND-003</div></div></div></td><td>Jewellery<div class="muted" style="font-size:11px">Aabha</div></td><td class="r num"><b>0</b><div class="muted" style="font-size:11px">1 variant</div></td><td class="r num"><span class="strike">₹1,299</span> <b>₹899</b></td><td><span class="chip red">Out of stock</span></td></tr>
+     <tr><td><span class="check"></span></td><td><div class="row"><div class="thumb" data-p="bag" data-c="#92400e"></div><div><b>Vegan Leather Tote</b><div class="muted" style="font-size:11px">AC-TOT-018</div></div></div></td><td>Fashion Add-ons<div class="muted" style="font-size:11px">Carry Co.</div></td><td class="r num"><b>27</b><div class="muted" style="font-size:11px">3 variants</div></td><td class="r num"><span class="strike">₹1,799</span> <b>₹1,199</b></td><td><span class="chip gray">Inactive</span></td></tr>
+    </table>
+    <div class="row between" style="padding:12px 16px;border-top:1px solid var(--line);font-size:12px"><span class="muted">Showing 1–10 of 1,284</span><div class="row" style="gap:6px"><span class="btn sm">‹</span><span class="btn sm" style="background:var(--blue);color:#fff;border-color:var(--blue)">1</span><span class="btn sm">2</span><span class="btn sm">3</span><span class="btn sm">…</span><span class="btn sm">129</span><span class="btn sm">›</span></div></div>
+   </div>
+  </div>
+  <div class="card" style="width:410px;flex:none;display:flex;flex-direction:column;overflow:hidden">
+   <div style="padding:16px 18px;border-bottom:1px solid var(--line)" class="row">
+    <div class="thumb" style="width:64px;height:64px;border-radius:12px" data-p="plaid" data-c="#9f1239"></div>
+    <div class="grow"><b style="font-size:15px">Checked Casual Shirt</b><div class="muted" style="font-size:11.5px;margin-top:3px">SH-CHK-001 · Men's Wear › Shirts</div><div class="row" style="gap:6px;margin-top:6px"><span class="chip blue nodot">AW-26</span><span class="chip gray nodot">Cotton</span><span class="chip gray nodot">Regular fit</span></div></div>
+    <span class="iconbtn"><i data-i="edit"></i></span>
+   </div>
+   <div style="padding:14px 18px;display:flex;flex-direction:column;gap:14px">
+    <div class="tabs"><span class="on">Variants</span><span>Pricing</span><span>Stock ledger</span><span>Details</span></div>
+    <div class="row between"><b>Size × Colour matrix</b><span class="muted" style="font-size:11.5px">stock on hand</span></div>
+    <div class="mx num">
+     <span></span><span class="h">S</span><span class="h">M</span><span class="h">L</span><span class="h">XL</span><span class="h">2XL</span>
+     <span class="c"><i style="background:#9f1239"></i>Maroon</span><span class="s">12</span><span class="s">18</span><span class="s sel">8<small>selected</small></span><span class="s">10</span><span class="s low">2</span>
+     <span class="c"><i style="background:#1e3a8a"></i>Navy</span><span class="s">9</span><span class="s">15</span><span class="s">14</span><span class="s">11</span><span class="s out">0</span>
+     <span class="c"><i style="background:#4d7c0f"></i>Olive</span><span class="s">7</span><span class="s">11</span><span class="s">13</span><span class="s low">3</span><span class="s">9</span>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:12px;padding:14px">
+     <div class="row between"><div><b>Variant SH-MRN-L</b><div class="muted" style="font-size:11.5px;margin-top:2px">Maroon · L · Min stock 4</div></div><span class="chip green">8 in stock</span></div>
+     <div class="row" style="margin-top:12px;gap:14px">
+      <div style="flex:none;text-align:center"><div class="bc" id="bc"></div><div class="num" style="font-size:11px;letter-spacing:.18em;margin-top:3px">8901234567890</div></div>
+      <div class="grow" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px">
+       <div><span class="muted">Purchase</span><br><b class="num">₹520.00</b></div><div><span class="muted">MRP</span><br><b class="num">₹1,499.00</b></div>
+       <div><span class="muted">Selling</span><br><b class="num" style="color:var(--blue)">₹999.00</b></div><div><span class="muted">Margin</span><br><b class="num" style="color:var(--green)">43.6%</b></div>
+      </div>
+     </div>
+    </div>
+    <div>
+     <b>Price lists</b>
+     <div style="margin-top:8px;display:flex;flex-direction:column;gap:6px;font-size:12.5px">
+      <div class="row between"><span>Retail – MRP Inclusive GST</span><b class="num">₹999</b></div>
+      <div class="row between"><span>Festive Sale (Diwali)</span><b class="num">₹899</b></div>
+      <div class="row between"><span>Wholesale (10+ pcs)</span><b class="num">₹780</b></div>
+     </div>
+    </div>
+    <div class="row" style="gap:8px"><span class="btn grow" style="justify-content:center"><i data-i="printer"></i>Print 8 labels</span><span class="btn primary grow" style="justify-content:center"><i data-i="plus"></i>Add variant</span></div>
+   </div>
+  </div>
+ </div>
+</div></div>
+<script src="assets/app.js"></script>
+<script>
+// deterministic barcode-like bars
+let s='',w=[1,2,1,3,1,1,2,1,3,2,1,1,2,3,1,2,1,1,3,1,2,2,1,1,3,1,2,1,1,2,1,3];w.forEach((x,i)=>s+=`<i style="width:${x}px;${i%2?'background:transparent':''}"></i>`);document.getElementById('bc').innerHTML=s+s.slice(0);
+</script></body></html>
