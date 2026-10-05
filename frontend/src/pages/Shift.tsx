@@ -157,7 +157,7 @@ function RecentShifts({ rows, onApprove }: { rows: ShiftT[]; onApprove: (id: str
 function ShiftReport({ shift, business, storeName, cashier, kind }: { shift: ShiftT; business: string; storeName: string; cashier: string; kind: 'X' | 'Z' }) {
   const s = shift.summary;
   return (
-    <div className="receipt num" style={{ width: 300 }}>
+    <div className="receipt num w80">
       <div className="c"><b style={{ fontSize: 14 }}>{business.toUpperCase()}</b><br />{storeName}<br /><b>{kind}-REPORT · SHIFT #{shift.shiftNo}</b></div><hr />
       <div className="r"><span>Cashier</span><span>{shift.user?.name ?? cashier}</span></div>
       <div className="r"><span>Counter</span><span>{shift.counter}</span></div>

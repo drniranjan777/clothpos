@@ -220,7 +220,7 @@ export default function Returns() {
       </div>
       {printing && done && (
         <PrintPortal onDone={() => setPrinting(false)}>
-          <div className="receipt num" style={{ width: 300 }}>
+          <div className="receipt num w80">
             <div className="c"><b style={{ fontSize: 14 }}>{me?.tenant?.businessName?.toUpperCase()}</b><br />{store?.name}<br /><b>CREDIT NOTE</b></div><hr />
             <div className="r"><span>{done.returnNo}</span><span>{new Date(done.createdAt).toLocaleString('en-IN')}</span></div>
             <div>Against bill {done.sale.invoiceNo}</div><hr />

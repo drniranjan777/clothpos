@@ -48,3 +48,27 @@ export function avatarColor(name = '') {
   for (const c of name) h = (h * 31 + c.charCodeAt(0)) >>> 0;
   return AV[h % AV.length];
 }
+
+const ONES = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
+const TENS = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
+function below1000(n: number): string {
+  const h = Math.floor(n / 100), r = n % 100;
+  const rest = r < 20 ? ONES[r] : `${TENS[Math.floor(r / 10)]}${r % 10 ? ' ' + ONES[r % 10] : ''}`;
+  return [h ? `${ONES[h]} Hundred` : '', rest].filter(Boolean).join(' ');
+}
+/** 7094.5 -> "Rupees Seven Thousand Ninety Four and Fifty Paise Only" (Indian lakh / crore grouping) */
+export function rupeesInWords(amount: number) {
+  const rupees = Math.floor(Math.abs(amount));
+  const paise = Math.round((Math.abs(amount) - rupees) * 100);
+  const parts: string[] = [];
+  let n = rupees;
+  const crore = Math.floor(n / 1e7); n %= 1e7;
+  const lakh = Math.floor(n / 1e5); n %= 1e5;
+  const thousand = Math.floor(n / 1e3); n %= 1e3;
+  if (crore) parts.push(`${crore >= 1000 ? rupeesInWords(crore).replace(/^Rupees | Only$/g, '') : below1000(crore)} Crore`);
+  if (lakh) parts.push(`${below1000(lakh)} Lakh`);
+  if (thousand) parts.push(`${below1000(thousand)} Thousand`);
+  if (n) parts.push(below1000(n));
+  const words = parts.join(' ') || 'Zero';
+  return `Rupees ${words}${paise ? ` and ${below1000(paise)} Paise` : ''} Only`;
+}

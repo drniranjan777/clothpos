@@ -624,8 +624,8 @@ export default function PosPage() {
             if (!sale.offline) { loadGrid(1); refreshCatalog(storeId).then((c) => c && setCatalog(c)); }
           }} />
       )}
-      {done && <SaleDone sale={done} business={me?.tenant?.businessName ?? ''} gstin={me?.tenant?.gstin} footer={settings?.invoiceFooter} onNew={() => { setDone(null); scanRef.current?.focus(); }} />}
-      {reprint && lastSale && <PrintPortal onDone={() => setReprint(false)}><ThermalReceipt sale={lastSale} business={me?.tenant?.businessName ?? ''} gstin={me?.tenant?.gstin} footer={settings?.invoiceFooter} /></PrintPortal>}
+      {done && <SaleDone sale={done} business={me?.tenant?.businessName ?? ''} gstin={me?.tenant?.gstin} stateCode={me?.tenant?.stateCode} roll={settings?.receiptWidth === 58 ? 58 : 80} footer={settings?.invoiceFooter} onNew={() => { setDone(null); scanRef.current?.focus(); }} />}
+      {reprint && lastSale && <PrintPortal paper={settings?.receiptWidth === 58 ? 58 : 80} onDone={() => setReprint(false)}><ThermalReceipt sale={lastSale} business={me?.tenant?.businessName ?? ''} gstin={me?.tenant?.gstin} footer={settings?.invoiceFooter} width={settings?.receiptWidth === 58 ? 58 : 80} /></PrintPortal>}
       {showQueue && (
         <Modal title="Offline sales queue" icon="wifi" onClose={() => setShowQueue(false)} width={620}
           sub={online ? 'Connected - queued sales sync automatically every 30 seconds' : 'No internet - sales are saved on this device and sync when the connection returns'}

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Icon } from '../components/Icon';
 import { Topbar } from '../components/Layout';
-import { PrintPortal, SaleDetail, ThermalReceipt } from '../components/Receipt';
+import { Paper, PrintPortal, SaleDetail, TaxInvoiceA4, ThermalReceipt } from '../components/Receipt';
 import { Confirm, ErrorBox, Loading, StatusChip, useLoad, useToast } from '../components/ui';
 import { get, post } from '../lib/api';
 import { useAuth } from '../lib/auth';
@@ -14,7 +14,8 @@ export default function InvoiceDetail() {
   const toast = useToast();
   const nav = useNavigate();
   const { data: s, error, loading, reload } = useLoad(() => get<SaleDetail>(`/sales/${id}`), [id]);
-  const [printing, setPrinting] = useState<58 | 80 | null>(null);
+  const [printing, setPrinting] = useState<Paper | null>(null);
+  const [roll, setRoll] = useState<58 | 80>(me?.settings?.receiptWidth === 58 ? 58 : 80);
   const [cancelling, setCancelling] = useState(false);
   if (loading && !s) return <><Topbar title="Invoice" /><Loading /></>;
   if (error || !s) return <><Topbar title="Invoice" /><ErrorBox error={error ?? 'Not found'} onRetry={reload} /></>;
@@ -56,8 +57,8 @@ export default function InvoiceDetail() {
             </div>
           )}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 12 }}>
-            <button className="card" style={{ padding: 16, textAlign: 'left', borderColor: 'var(--blue)' }} onClick={() => setPrinting(80)}><span className="ib" style={{ width: 36, height: 36, borderRadius: 9, background: 'var(--blue)', color: '#fff', display: 'grid', placeItems: 'center' }}><Icon name="printer" /></span><b style={{ display: 'block', marginTop: 10 }}>Reprint 80mm</b><span className="muted" style={{ fontSize: 11.5 }}>Thermal receipt</span></button>
-            <button className="card" style={{ padding: 16, textAlign: 'left' }} onClick={() => setPrinting(58)}><span style={{ width: 36, height: 36, borderRadius: 9, background: '#f1f5f9', display: 'grid', placeItems: 'center' }}><Icon name="receipt" /></span><b style={{ display: 'block', marginTop: 10 }}>Reprint 58mm</b><span className="muted" style={{ fontSize: 11.5 }}>Narrow printer</span></button>
+            <button className="card" style={{ padding: 16, textAlign: 'left', borderColor: 'var(--blue)' }} onClick={() => setPrinting(roll)}><span className="ib" style={{ width: 36, height: 36, borderRadius: 9, background: 'var(--blue)', color: '#fff', display: 'grid', placeItems: 'center' }}><Icon name="printer" /></span><b style={{ display: 'block', marginTop: 10 }}>Print receipt</b><span className="muted" style={{ fontSize: 11.5 }}>Thermal · {roll} mm roll</span></button>
+            <button className="card" style={{ padding: 16, textAlign: 'left' }} onClick={() => setPrinting('a4')}><span style={{ width: 36, height: 36, borderRadius: 9, background: '#f1f5f9', display: 'grid', placeItems: 'center' }}><Icon name="file" /></span><b style={{ display: 'block', marginTop: 10 }}>A4 tax invoice</b><span className="muted" style={{ fontSize: 11.5 }}>Full GST invoice · Save as PDF</span></button>
             <a className={`card ${wa ? '' : 'disabled'}`} style={{ padding: 16, textDecoration: 'none', opacity: wa ? 1 : 0.5 }} href={wa} target="_blank" rel="noreferrer"><span style={{ width: 36, height: 36, borderRadius: 9, background: 'var(--green-l)', color: 'var(--green)', display: 'grid', placeItems: 'center' }}><Icon name="whatsapp" /></span><b style={{ display: 'block', marginTop: 10 }}>WhatsApp</b><span className="muted" style={{ fontSize: 11.5 }}>{s.customer?.mobile ?? 'No customer'}</span></a>
             <div className="card" style={{ padding: 16 }}><span style={{ width: 36, height: 36, borderRadius: 9, background: 'var(--violet-l)', color: 'var(--violet)', display: 'grid', placeItems: 'center' }}><Icon name="star" /></span><b style={{ display: 'block', marginTop: 10 }}>+{s.loyaltyEarned} points</b><span className="muted" style={{ fontSize: 11.5 }}>{s.customer?.name ?? 'Walk-in'}</span></div>
           </div>
@@ -95,11 +96,18 @@ export default function InvoiceDetail() {
           </div>
         </div>
         <div style={{ width: 360, flex: 'none', background: '#e9edf5', borderRadius: 14, display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '16px 0', gap: 10, alignSelf: 'flex-start' }}>
-          <div className="row muted" style={{ gap: 8, fontSize: 12 }}><Icon name="eye" size={15} />Receipt preview · 80mm</div>
-          <div className="receipt-paper"><ThermalReceipt sale={s} business={business} gstin={me?.tenant?.gstin} footer={me?.settings?.invoiceFooter} /></div>
+          <div className="row" style={{ gap: 8, fontSize: 12 }}><span className="muted row" style={{ gap: 6 }}><Icon name="eye" size={15} />Receipt preview</span>
+            <div className="tabs" style={{ padding: 3 }}><span className={roll === 80 ? 'on' : ''} onClick={() => setRoll(80)}>80 mm</span><span className={roll === 58 ? 'on' : ''} onClick={() => setRoll(58)}>58 mm</span></div></div>
+          <div className="receipt-paper"><ThermalReceipt sale={s} business={business} gstin={me?.tenant?.gstin} footer={me?.settings?.invoiceFooter} width={roll} /></div>
         </div>
       </div>
-      {printing && <PrintPortal onDone={() => setPrinting(null)}><ThermalReceipt sale={s} business={business} gstin={me?.tenant?.gstin} footer={me?.settings?.invoiceFooter} width={printing} /></PrintPortal>}
+      {printing && (
+        <PrintPortal paper={printing} onDone={() => setPrinting(null)}>
+          {printing === 'a4'
+            ? <TaxInvoiceA4 sale={s} business={business} gstin={me?.tenant?.gstin} stateCode={me?.tenant?.stateCode} footer={me?.settings?.invoiceFooter} />
+            : <ThermalReceipt sale={s} business={business} gstin={me?.tenant?.gstin} footer={me?.settings?.invoiceFooter} width={printing} />}
+        </PrintPortal>
+      )}
       {cancelling && <Confirm title={`Cancel ${s.invoiceNo}?`} danger needReason confirmLabel="Cancel invoice" onClose={() => setCancelling(false)}
         text={<>Stock for {s.totalQty} pieces goes back to {s.store.name} and the invoice stays on record as cancelled. Refund the customer's {inr(s.total)} separately.</>}
         onConfirm={async (reason) => { await post(`/sales/${s.id}/cancel`, { reason }); toast('Invoice cancelled', 'success'); reload(); }} />}

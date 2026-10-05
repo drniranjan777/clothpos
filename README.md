@@ -32,6 +32,13 @@ npm install
 npm run dev               # app on http://localhost:5173 (proxies /api to :4000)
 ```
 
+If another program already uses port 4000, run the API on another port and point the app at it:
+
+```bash
+cd backend && PORT=4100 npm run dev
+cd frontend && API_URL=http://localhost:4100 npm run dev
+```
+
 ### Demo accounts (created by `npm run seed`)
 
 | Role | Login | Lands on |

@@ -290,7 +290,7 @@ function LabelDialog({ product, variant, count, onClose }: { product: Detail; va
         {label}
         <div className="field grow"><label>Number of labels</label><input className="input num" inputMode="numeric" value={n} onChange={(e) => setN(e.target.value.replace(/\D/g, ''))} /><span className="hint">Defaults to the stock on hand. Works with A4 label sheets or a label printer (38 × 25 mm).</span></div>
       </div>
-      {printing && <PrintPortal onDone={() => setPrinting(false)}><div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, padding: 8 }}>{Array.from({ length: qty }, (_, i) => <div key={i}>{label}</div>)}</div></PrintPortal>}
+      {printing && <PrintPortal paper="a4" onDone={() => setPrinting(false)}><div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, padding: 8 }}>{Array.from({ length: qty }, (_, i) => <div key={i}>{label}</div>)}</div></PrintPortal>}
     </Modal>
   );
 }

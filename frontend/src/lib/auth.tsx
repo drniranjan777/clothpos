@@ -23,7 +23,7 @@ export interface Me {
     plan: { name: string; code: string; maxStores: number | null; maxUsers: number | null; maxSkus: number | null };
   } | null;
   modules: string[];
-  settings: { allowNegativeStock: boolean; cashierDiscountLimitPct: number; returnWindowDays: number; roundOff: boolean; invoiceFooter: string } | null;
+  settings: { allowNegativeStock: boolean; cashierDiscountLimitPct: number; returnWindowDays: number; roundOff: boolean; invoiceFooter: string; receiptWidth: 58 | 80; loyaltyPointsPer100: number; cashVarianceTolerance: number } | null;
 }
 
 interface AuthCtx {

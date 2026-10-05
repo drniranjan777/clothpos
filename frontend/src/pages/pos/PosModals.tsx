@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Icon } from '../../components/Icon';
 import { ProductArt } from '../../components/ProductArt';
-import { PrintPortal, SaleDetail, ThermalReceipt } from '../../components/Receipt';
+import { Paper, PrintPortal, SaleDetail, TaxInvoiceA4, ThermalReceipt } from '../../components/Receipt';
 import { Modal, useToast } from '../../components/ui';
 import { post } from '../../lib/api';
 import { BillResult } from '../../lib/billing';
@@ -249,12 +249,12 @@ export function PaymentModal({ bill, lines, customer, billNo, request, onDone, o
 }
 
 // ---------------------------------------------------------------- sale completed
-export function SaleDone({ sale, business, gstin, footer, onNew }: { sale: SaleDetail; business: string; gstin?: string; footer?: string; onNew: () => void }) {
-  const [printing, setPrinting] = useState(false);
+export function SaleDone({ sale, business, gstin, stateCode, footer, roll = 80, onNew }: { sale: SaleDetail; business: string; gstin?: string; stateCode?: string; footer?: string; roll?: 58 | 80; onNew: () => void }) {
+  const [printing, setPrinting] = useState<Paper | null>(null);
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'F1' || e.key === 'Enter' || e.key === 'Escape') { e.preventDefault(); onNew(); }
-      if (e.key === 'F9') { e.preventDefault(); setPrinting(true); }
+      if (e.key === 'F9') { e.preventDefault(); setPrinting(roll); }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
@@ -270,17 +270,22 @@ export function SaleDone({ sale, business, gstin, footer, onNew }: { sale: SaleD
           </div>
           {sale.changeAmount > 0 && <div className="row between" style={{ background: 'var(--amber-l)', color: 'var(--amber)', borderRadius: 12, padding: '14px 16px' }}><b>Return change to customer</b><b className="num" style={{ fontSize: 22 }}>{inr(sale.changeAmount, true)}</b></div>}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
-            <button className="btn lg" style={{ justifyContent: 'center' }} onClick={() => setPrinting(true)}><Icon name="printer" />Print receipt <span className="kbd l">F9</span></button>
-            <a className={`btn lg ${sale.customer ? '' : 'disabled'}`} style={{ justifyContent: 'center' }} href={sale.customer ? wa : undefined} target="_blank" rel="noreferrer"><Icon name="whatsapp" />WhatsApp</a>
+            <button className="btn lg" style={{ justifyContent: 'center' }} onClick={() => setPrinting(roll)}><Icon name="printer" />Print receipt <span className="kbd l">F9</span></button>
+            <button className="btn lg" style={{ justifyContent: 'center' }} disabled={sale.offline} title={sale.offline ? 'Available once the sale has synced' : undefined} onClick={() => setPrinting('a4')}><Icon name="file" />A4 tax invoice</button>
+            <a className={`btn lg ${sale.customer ? '' : 'disabled'}`} style={{ justifyContent: 'center', gridColumn: '1 / -1' }} href={sale.customer ? wa : undefined} target="_blank" rel="noreferrer"><Icon name="whatsapp" />WhatsApp</a>
           </div>
           {sale.loyaltyEarned > 0 && <div className="row" style={{ gap: 8, fontSize: 12.5 }}><Icon name="star" size={15} />{sale.customer?.name} earned {sale.loyaltyEarned} loyalty points</div>}
           <button className="btn primary lg" style={{ justifyContent: 'center', marginTop: 'auto' }} autoFocus onClick={onNew}><Icon name="plus" />New Bill <span className="kbd">F1</span></button>
         </div>
         <div style={{ width: 340, background: '#e9edf5', padding: 16, display: 'flex', justifyContent: 'center', overflow: 'auto', maxHeight: '80vh' }}>
-          <div className="receipt-paper"><ThermalReceipt sale={sale} business={business} gstin={gstin} footer={footer} /></div>
+          <div className="receipt-paper"><ThermalReceipt sale={sale} business={business} gstin={gstin} footer={footer} width={roll} /></div>
         </div>
       </div>
-      {printing && <PrintPortal onDone={() => setPrinting(false)}><ThermalReceipt sale={sale} business={business} gstin={gstin} footer={footer} /></PrintPortal>}
+      {printing && (
+        <PrintPortal paper={printing} onDone={() => setPrinting(null)}>
+          {printing === 'a4' ? <TaxInvoiceA4 sale={sale} business={business} gstin={gstin} stateCode={stateCode} footer={footer} /> : <ThermalReceipt sale={sale} business={business} gstin={gstin} footer={footer} width={printing} />}
+        </PrintPortal>
+      )}
     </div>
   );
 }
